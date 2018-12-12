@@ -1,0 +1,10 @@
+{
+	"defaultSeverity": "warning",
+	"extends": ["tslint-config-airbnb"],
+	"jsRules": {},
+	"rules": {
+		"variable-name": false,
+		"import-name": false
+	},
+	"rulesDirectory": []
+}
