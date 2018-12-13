@@ -6,14 +6,14 @@ jobs:
       - image: circleci/node:11.0.0
     steps:
       - checkout # check out source code in working directory
-
+      - run: pwd
       - restore_cache: # restore dependency cache
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
             - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - node-v1-{{ .Branch }}-
             - node-v1-
-
+      - run: pwd
       - run: npm install
 
       - save_cache: # save dependencies to cache
