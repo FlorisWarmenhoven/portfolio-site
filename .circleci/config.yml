@@ -5,6 +5,4 @@ jobs:
       - image: circleci/node:11.0.0
     steps:
       - checkout
-      - run: cd client
-      - run: npm install
-      - run: npm test
+      - run: cd client && npm install && npm test
