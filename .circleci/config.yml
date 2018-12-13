@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:11.0.0
     steps:
       - checkout # check out source code in working directory
-      - run: pwd
+      - run: pwd && ls -a
       - run: ls
       - restore_cache: # restore dependency cache
           keys:
