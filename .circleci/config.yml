@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/project/client # directory used in the steps
     docker:
       - image: circleci/node:11.0.0
     steps:
@@ -13,11 +14,11 @@ jobs:
             - node-v1-{{ .Branch }}-
             - node-v1-
 
-      - run: cd client && npm install
+      - run: npm install
 
       - save_cache: # save dependencies to cache
           key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
-            - ./client/node_modules
+            - ./node_modules
 
-      - run: cd client && npm test
+      - run: npm test
