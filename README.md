@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master.svg?style=svg)](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master)
+
 # Floris' Portfolio Website
 
 My portfolio will be made with the following technologies:
