@@ -9,8 +9,8 @@ app.get("/test", (req, res) => {
 	res.send(__dirname);
 });
 
-app.listen(port);
-
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "client/dist", "index.html"));
 });
+
+app.listen(port);
