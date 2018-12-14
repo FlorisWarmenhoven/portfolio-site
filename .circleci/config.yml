@@ -30,7 +30,7 @@ jobs:
           command: |
             ./client/cc-test-reporter before-build
             cd client && npm test -- --coverage
-            ./cc-test-reporter after-build -t clover --exit-code $?
+            ./cc-test-reporter after-build -t lcov --exit-code $?
 
   deploy:
     docker:
