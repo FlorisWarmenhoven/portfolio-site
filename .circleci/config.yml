@@ -20,7 +20,7 @@ jobs:
             - ./client/node_modules
 
       - run: cd client && npm test
-  deployment:
+deployment:
   staging:
     branch: master
     heroku:
