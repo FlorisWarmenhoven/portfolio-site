@@ -1,0 +1,20 @@
+type User {
+	id: ID! @unique
+	name: String!
+	email: String!
+	projects: [Project!]!
+}
+
+type Project {
+	id: ID! @unique
+	title: String!
+	description: String!
+	imageUrl: String!
+	technologies: [Technology!]!
+}
+
+type Technology {
+	id: ID! @unique
+	name: String!
+	iconUrl: String!
+}

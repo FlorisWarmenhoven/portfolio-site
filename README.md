@@ -7,5 +7,7 @@ My portfolio will be made with the following technologies:
 - React
 - NodeJS
 - GraphQL
+- CI/CD pipeline
+- Unit testing
 
 This README will be updated throughout the project.

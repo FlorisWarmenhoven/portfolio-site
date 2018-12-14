@@ -1,5 +1,5 @@
 {
-	"name": "portfolio-site",
+	"name": "portfolio-site-root",
 	"version": "1.0.0",
 	"description": "[![CircleCI](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master.svg?style=shield)](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master)",
 	"main": "index.js",
