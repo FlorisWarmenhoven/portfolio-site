@@ -29,7 +29,7 @@ jobs:
           name: Run tests and coverage report
           command: |
             ./client/cc-test-reporter before-build
-            cd client && npm test -- --coverage && cd ..
+            cd client && npm test -- --coverage
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
 
   deploy:
