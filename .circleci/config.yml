@@ -20,11 +20,24 @@ jobs:
             - ./client/node_modules
 
       - run: cd client && npm test
+
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+        name: Deploy Master to Heroku
+        command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/warmenhoven-portfolio.git master
+
 workflows:
   version: 2
-
   deployment:
-    staging:
-      branch: master
-      heroku:
-        appname: warmenhoven-portfolio
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
