@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"start": "node server.js",
-		"heroku-postinstall": "cd client && npm install --dev && npm run build"
+		"heroku-postinstall": "cd client && npm install && npm run build"
 	},
 	"repository": {
 		"type": "git",
