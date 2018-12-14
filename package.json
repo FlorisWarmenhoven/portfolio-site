@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "[![CircleCI](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master.svg?style=shield)](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master)",
 	"main": "index.js",
+	"engines": {
+		"node": "11.x"
+	},
 	"scripts": {
 		"start": "node server.js",
 		"heroku-postbuild": "run cd client/ && npm build"
