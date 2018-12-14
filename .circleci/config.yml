@@ -14,12 +14,22 @@ jobs:
             - node-v1-
       - run: cd client && npm install
 
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       - save_cache: # save dependencies to cache
           key: node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
           paths:
             - ./client/node_modules
 
-      - run: cd client && npm test
+      - run:
+          name: Run tests and coverage report
+          command: |
+            ./cc-test-reporter before-build
+            cd client && npm test -- --coverage
+            ./cc-test-reporter after-build --exit-code $?
 
   deploy:
     docker:
