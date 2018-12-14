@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"start": "node server.js",
-		"heroku-postbuild": "run cd client && webpack --env prod"
+		"heroku-postbuild": "cd client && npm install && webpack --env prod"
 	},
 	"repository": {
 		"type": "git",
