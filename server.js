@@ -5,8 +5,9 @@ const app = express();
 // ... other app.use middleware
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
-// ...
-// Right before your app.listen(), add this:
+app.get("/test", (req, res) => {
+	res.json({ hi: "hi" });
+});
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
