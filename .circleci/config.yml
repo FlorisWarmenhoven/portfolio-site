@@ -20,3 +20,8 @@ jobs:
             - ./client/node_modules
 
       - run: cd client && npm test
+  deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: warmenhoven-portfolio
