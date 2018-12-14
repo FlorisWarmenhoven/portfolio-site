@@ -2,7 +2,6 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
-// ... other app.use middleware
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
 app.get("/test", (req, res) => {
@@ -10,7 +9,7 @@ app.get("/test", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "app", "client", "dist", "index.html"));
+	res.sendFile(path.join(__dirname, "client/dist", "index.html"));
 });
 
 const port = process.env.PORT || 8000;
