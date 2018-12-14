@@ -1,14 +1,13 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/portfolio-site # directory used in the steps
+    working_directory: ~/portfolio-site
     docker:
       - image: circleci/node:11.0.0
     steps:
-      - checkout # check out source code in working directory
-      - restore_cache: # restore dependency cache
+      - checkout
+      - restore_cache:
           keys:
-            # when lock file changes, use increasingly general patterns to restore cache
             - node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
             - node-v1-{{ .Branch }}-
             - node-v1-
@@ -21,7 +20,7 @@ jobs:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
 
-      - save_cache: # save dependencies to cache
+      - save_cache:
           key: node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
           paths:
             - ./client/node_modules
