@@ -4,7 +4,8 @@
 	"description": "Portfolio site",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --open",
+		"start": "webpack-dev-server --open --env dev",
+		"build": "webpack -p",
 		"test": "jest"
 	},
 	"author": "Floris Warmenhoven",
