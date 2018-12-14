@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --open --env dev",
-		"build": "node ./node_modules/webpack/bin/webpack.js --env prod",
+		"build": "webpack --env prod",
 		"test": "jest"
 	},
 	"author": "Floris Warmenhoven",
