@@ -17,8 +17,8 @@ jobs:
       - run:
           name: Setup Code Climate test-reporter
           command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./client/cc-test-reporter
+            chmod +x ./client/cc-test-reporter
 
       - save_cache:
           key: node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Run tests and coverage report
           command: |
-            ./cc-test-reporter before-build
+            ./client/cc-test-reporter before-build
             cd client && npm test -- --coverage && cd ..
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
 
