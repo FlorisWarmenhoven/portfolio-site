@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
@@ -8,12 +9,8 @@ app.get("/test", (req, res) => {
 	res.send(__dirname);
 });
 
+app.listen(port);
+
 app.get("*", (req, res) => {
-	res.sendFile(__dirname, "client/dist", "index.html");
-});
-
-const port = process.env.PORT || 8000;
-
-app.listen(port, () => {
-	console.log("Server is running on http://localhost:" + port);
+	res.sendFile(path.join(__dirname, "client/dist", "index.html"));
 });
