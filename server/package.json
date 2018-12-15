@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "start.js",
 	"scripts": {
-		"start": "nodemon start.js --ext js ,graphql --exec babel-node",
+		"start": "nodemon start.js --ext js,graphql --exec babel-node",
 		"get-schema": "graphql get-schema -p prisma",
 		"deploy-prisma": "cd prisma && prisma deploy -e ../.env"
 	},
