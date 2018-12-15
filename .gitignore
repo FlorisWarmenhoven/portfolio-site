@@ -1,8 +1,4 @@
-# Client
-
-client/node_modules/
-client/dist/
-
-# Server
 node_modules/
+dist/
 .env
+generated/

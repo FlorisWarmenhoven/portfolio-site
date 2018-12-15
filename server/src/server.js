@@ -31,6 +31,9 @@ const server = new GraphQLServer({
 		Mutation,
 		User,
 	},
+	context: {
+		prisma,
+	},
 });
 
 // File path to client dist folder
@@ -65,5 +68,5 @@ prisma.query
 	.users(null, "{id name email}")
 	.then(response => console.log(response))
 	.catch(error => console.log(error));
-
+console.log(prisma.users);
 server.start(options);
