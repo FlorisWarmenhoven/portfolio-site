@@ -4,7 +4,6 @@ import Mutation from "./resolvers/Mutation";
 import User from "./resolvers/User";
 import path from "path";
 import express from "express";
-import _ from "./env";
 import { prisma } from "./prisma";
 
 // Variable port for Heroku or local development
