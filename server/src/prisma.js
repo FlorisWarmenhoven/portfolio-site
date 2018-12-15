@@ -1,8 +1,9 @@
 import { Prisma } from "prisma-binding";
+
 const pathToGraphql =
-	process.env.PRODUCTION === "true"
+	process.env.PRODUCTION == true
 		? "server/src/generated/prisma.graphql"
-		: "src/generated/prisma.graphql";
+		: "generated/prisma.graphql";
 
 export const prisma = new Prisma({
 	typeDefs: pathToGraphql,
