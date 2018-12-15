@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon src/index.js --ext js ,graphql --exec babel-node",
 		"get-schema": "graphql get-schema -p prisma",
-		"generate-schema": "cd prisma && prisma deploy -e ../.env"
+		"deploy-prisma": "cd prisma && prisma deploy -e ../.env"
 	},
 	"author": "Floris Warmenhoven",
 	"license": "ISC",

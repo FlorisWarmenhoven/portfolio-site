@@ -6,6 +6,7 @@ import path from "path";
 import express from "express";
 import _ from "./env";
 import { prisma } from "./prisma";
+
 const port = process.env.PORT || 8000;
 const options = {
 	port,
@@ -21,6 +22,7 @@ const server = new GraphQLServer({
 		Mutation,
 		User,
 	},
+
 	// Add secret here
 });
 

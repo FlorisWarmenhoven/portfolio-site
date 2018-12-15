@@ -6,4 +6,3 @@ client/dist/
 # Server
 node_modules/
 .env
-generated/
