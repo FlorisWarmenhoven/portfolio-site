@@ -2,9 +2,9 @@
 	"name": "portfolio-site-server",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "start.js",
 	"scripts": {
-		"start": "nodemon src/index.js --ext js ,graphql --exec babel-node",
+		"start": "nodemon start.js --ext js ,graphql --exec babel-node",
 		"get-schema": "graphql get-schema -p prisma",
 		"deploy-prisma": "cd prisma && prisma deploy -e ../.env"
 	},
@@ -14,6 +14,7 @@
 		"babel-cli": "^6.26.0",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
+		"babel-register": "^6.26.0",
 		"dotenv": "^6.2.0",
 		"express": "^4.16.4",
 		"graphql-cli": "^3.0.1",
