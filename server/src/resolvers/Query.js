@@ -1,10 +1,13 @@
 const Query = {
-	me() {
-		return {
-			id: "123098",
-			name: "Mike",
-			email: "mike@example.com",
-		};
+	async users(parent, args, { prisma }, info) {
+		const response = await prisma.query.users(null, info);
+
+		return response;
+	},
+	async projects(parent, args, { prisma }, info) {
+		const response = await prisma.query.projects(null, info);
+
+		return response;
 	},
 };
 

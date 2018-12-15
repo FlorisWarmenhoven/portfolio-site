@@ -1,24 +1,51 @@
+# OBJECT TYPES
 type User {
 	id: ID!
 	name: String!
+	password: String!
 	email: String!
-	age: Int
+	projects: [Project!]!
 }
 
+type Project {
+	id: ID!
+	title: String!
+	description: String!
+	imageUrl: String!
+	technologies: [Technology!]!
+}
+
+type Technology {
+	id: ID!
+	name: String!
+	iconUrl: String!
+}
+
+# QUERIES
 type Query {
-	me: User!
+	users: [User!]!
+	projects: [Project!]!
 }
 
+# MUTATIONS
 type Mutation {
 	createUser(data: CreateUserInput!): User!
 	deleteUser(id: ID!): User!
 	updateUser(id: ID!, data: UpdateUserInput!): User!
+	createProject(data: CreateProjectInput!): Project!
+}
+
+# INPUT TYPES
+input CreateProjectInput {
+	title: String!
+	description: String!
+	imageUrl: String!
 }
 
 input CreateUserInput {
 	name: String!
 	email: String!
-	age: Int
+	password: String!
 }
 
 input UpdateUserInput {
