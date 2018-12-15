@@ -29,10 +29,10 @@ type Query {
 
 # MUTATIONS
 type Mutation {
-	createUser(data: CreateUserInput!): User!
+	createUser(data: CreateUserInput!): AuthPayload!
 	deleteUser(id: ID!): User!
-	updateUser(id: ID!, data: UpdateUserInput!): User!
 	createProject(data: CreateProjectInput!): Project!
+	login(data: LoginUserInput): AuthPayload!
 }
 
 # INPUT TYPES
@@ -52,4 +52,15 @@ input UpdateUserInput {
 	name: String
 	email: String
 	age: Int
+}
+
+input LoginUserInput {
+	email: String!
+	password: String!
+}
+
+# OUTPUT TYPES
+type AuthPayload {
+	user: User!
+	token: String!
 }

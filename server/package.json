@@ -20,6 +20,7 @@
 		"express": "^4.16.4",
 		"graphql-cli": "^3.0.1",
 		"graphql-yoga": "^1.16.7",
+		"jsonwebtoken": "^8.4.0",
 		"prisma-binding": "^2.2.10"
 	},
 	"devDependencies": {
