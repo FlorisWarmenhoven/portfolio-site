@@ -14,9 +14,13 @@ const options = {
 	playground: "/playground",
 	subscriptions: "/subscriptions",
 };
+const schemaPath =
+	process.env.PRODUCTION === "true"
+		? "server/src/schema.graphql"
+		: "src/schema.graphql";
 
 const server = new GraphQLServer({
-	typeDefs: "./src/schema.graphql",
+	typeDefs: schemaPath,
 	resolvers: {
 		Query,
 		Mutation,
