@@ -7,8 +7,8 @@
 		"node": "11.x"
 	},
 	"scripts": {
-		"start": "node server.js",
-		"heroku-postbuild": "cd client && npm install && npm install -only=dev && npm run build"
+		"start": "node server/src/index.js",
+		"heroku-postbuild": "cd client && npm install && npm install -only=dev && npm run build && cd ../server/prisma && prisma deploy"
 	},
 	"repository": {
 		"type": "git",
