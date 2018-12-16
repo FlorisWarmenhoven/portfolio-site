@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Run tests for back-end
           command: |
-            cd server && npm test-ci
+            cd server && npm run test-ci
 
   deploy:
     docker:
