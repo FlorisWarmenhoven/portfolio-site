@@ -26,11 +26,16 @@ jobs:
             - ./client/node_modules
 
       - run:
-          name: Run tests and coverage report
+          name: Run tests and coverage report for front-end
           command: |
             ./client/cc-test-reporter before-build
             cd client && npm test -- --coverage
             ./cc-test-reporter after-build -t lcov --exit-code $?
+
+      - run:
+          name: Run tests for back-end
+          command: |
+            cd server && npm test
 
   deploy:
     docker:
