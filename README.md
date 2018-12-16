@@ -14,7 +14,7 @@ This application will feature:
 - NodeJS back-end with GraphQL Yoga
 - GraphQL as database query language
 - Complete CI/CD pipeline with CircleCI, Heroku and CodeClimate for test coverage
-- Extensive unit testing
+- Extensive unit testing and integration testing
 - Authentication with JWT
 
 ## How to use
