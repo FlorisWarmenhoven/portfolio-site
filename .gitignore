@@ -1,6 +1,11 @@
-node_modules/
-dist/
+# Env files
 dev.env
 prod.env
 test.env
+
+# Build files
 generated/
+dist/
+
+# Misc
+node_modules/
