@@ -1,6 +1,6 @@
 import path from "path";
 import express from "express";
-import { server } from "./yogaServer";
+import server from "./yogaServer.js";
 
 // Variable port for Heroku or local development
 const port = process.env.PORT || 8000;
