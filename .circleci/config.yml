@@ -12,7 +12,9 @@ jobs:
             - node-v1-{{ .Branch }}-
             - node-v1-
 
-      - run: cd client && npm install
+      - run:
+          name: Install Client dependencies
+          command: cd client && npm install
 
       - run:
           name: Setup Code Climate test-reporter
