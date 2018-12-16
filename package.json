@@ -7,8 +7,16 @@
 		"node": "11.x"
 	},
 	"scripts": {
-		"start": "node server/start.js",
+		"start": "env-cmd server/config/prod.env babel-node server/src/index.js",
 		"heroku-postbuild": "cd client && npm install && npm install -only=dev && npm run build && cd ../server && npm install && npm run get-schema"
+	},
+	"babel": {
+		"presets": [
+			"env"
+		],
+		"plugins": [
+			"transform-object-rest-spread"
+		]
 	},
 	"repository": {
 		"type": "git",
@@ -21,6 +29,9 @@
 	},
 	"homepage": "https://github.com/FlorisWarmenhoven/portfolio-site#readme",
 	"dependencies": {
-		"express": "^4.16.4"
+		"babel-cli": "^6.26.0",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"env-cmd": "^8.0.2"
 	}
 }
