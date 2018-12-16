@@ -1,18 +1,9 @@
-import { GraphQLServer } from "graphql-yoga";
-import Query from "./resolvers/Query";
-import Mutation from "./resolvers/Mutation";
 import path from "path";
 import express from "express";
-import { prisma } from "./prisma";
+import { server } from "./yogaServer";
 
 // Variable port for Heroku or local development
 const port = process.env.PORT || 8000;
-
-// Variable schemaPath for Heroku or local development
-const schemaPath =
-	process.env.PRODUCTION === "true"
-		? "server/src/schema.graphql"
-		: "src/schema.graphql";
 
 // GraphQL Yoga server options
 const options = {
@@ -22,25 +13,11 @@ const options = {
 	subscriptions: "/api/subscriptions",
 };
 
-// GraphQL Yoga server
-const server = new GraphQLServer({
-	typeDefs: schemaPath,
-	resolvers: {
-		Query,
-		Mutation,
-	},
-	context(request) {
-		return {
-			prisma,
-			request,
-		};
-	},
-});
-
 // File path to client dist folder
 const publicPath = express.static(
 	path.join(__dirname, "..", "..", "client", "dist")
 );
+
 // File path to index.html in client dist folder
 const indexPath = path.join(__dirname, "..", "..", "client", "dist/index.html");
 
