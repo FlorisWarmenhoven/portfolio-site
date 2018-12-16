@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { App } from '../components/App';
+import { App } from '../src/components/App';
 // import Link from '../Link.react';
 // import renderer from 'react-test-renderer';
 
