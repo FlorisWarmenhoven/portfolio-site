@@ -6,10 +6,10 @@
 	"scripts": {
 		"start": "env-cmd ./config/dev.env nodemon ./src/index.js --ext js,graphql --exec babel-node",
 		"get-schema": "graphql get-schema -p prisma",
-		"prisma-deploy-prod": "env-cmd ./config/prod.env cd prisma && prisma deploy",
-		"prisma-deploy-dev": "env-cmd ./config/dev.env cd prisma && prisma deploy",
-		"prisma-deploy-test": "env-cmd ./config/test.env cd prisma && prisma deploy",
-		"test": "env-cmd ./config/testing.env jest --watch"
+		"prisma-deploy-prod": "cd prisma && prisma deploy -e ../config/prod.env",
+		"prisma-deploy-dev": "cd prisma && prisma deploy -e ../config/dev.env",
+		"prisma-deploy-test": "cd prisma && prisma deploy -e ../config/test.env",
+		"test": "env-cmd ./config/test.env jest --watch"
 	},
 	"jest": {
 		"globalSetup": "./tests/jest/globalSetup.js",
@@ -27,6 +27,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"@babel/polyfill": "^7.0.0",
+		"apollo-boost": "^0.1.22",
 		"babel-cli": "^6.26.0",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-polyfill": "^6.26.0",
@@ -35,9 +36,11 @@
 		"babel-preset-stage-0": "^6.24.1",
 		"babel-register": "^6.26.0",
 		"bcryptjs": "^2.4.3",
+		"cross-fetch": "^3.0.0",
 		"dotenv": "^6.2.0",
 		"env-cmd": "^8.0.2",
 		"express": "^4.16.4",
+		"graphql": "^14.0.2",
 		"graphql-cli": "^3.0.1",
 		"graphql-yoga": "^1.16.7",
 		"jest": "^23.6.0",
