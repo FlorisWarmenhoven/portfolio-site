@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Navbar from "./Navbar";
 
 export class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>If the CircleCI pipeline is working - then you should see this.</h1>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Navbar />
+			</div>
+		);
+	}
 }
