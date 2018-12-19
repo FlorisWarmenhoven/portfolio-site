@@ -2,6 +2,9 @@
 
 # Floris' Portfolio Application
 
+See the latest successful build live here: https://warmenhoven-portfolio.herokuapp.com/
+(Note: server may be sleeping, give it a few minutes to load)
+
 ## About this project
 
 I will be developing a portfolio application, which will showcase my skills in the form of applications that I have created. The portfolio application itself will be a culmination of my skills that I have acquired throughout my studies. Even though having a full-stack application to display 'static' applications is a bit of an overkill, I like the challenge of creating an application from scratch. The application owner will be able to add new projects for display through an admin panel - the project information will be saved in the database. Visitors to the site will be able to see projects I've worked on with a link to GitHub, list of technologies used, project description and more.
