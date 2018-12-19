@@ -69,6 +69,12 @@ module.exports = {
 				use: { loader: "source-map-loader" },
 				exclude: /node_modules/,
 			},
+
+			// Load in CSS
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
 		],
 	},
 	plugins: [
