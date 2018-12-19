@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
 	mode: "development",
@@ -24,7 +25,7 @@ module.exports = {
 	},
 
 	// Enable sourcemaps for debugging webpack's output.
-	devtool: "inline-source-map",
+	devtool: "cheap-module-eval-source-map",
 
 	resolve: {
 		// Add '.ts' and '.tsx' as resolvable extensions.
@@ -48,20 +49,46 @@ module.exports = {
 	module: {
 		rules: [
 			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+			{
+				test: /\.tsx?$/,
+				use: {
+					loader: "awesome-typescript-loader",
+					// transpileOnly removes typechecking and will not output declaration files
+					// this vastly increases build times.
+					// We add in type-checking through Fork TS Checker Webpack Plugin which starts the TS type checker
+					// on a separate process.
+					options: { transpileOnly: true, experimentalWatchApi: true },
+				},
+				exclude: /node_modules/,
+			},
 
 			// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+			{
+				enforce: "pre",
+				test: /\.js$/,
+				use: { loader: "source-map-loader" },
+				exclude: /node_modules/,
+			},
 		],
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		// enable HMR globally
-		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 		// prints more readable module names in the browser console on HMR updates
+		new webpack.NamedModulesPlugin(),
+		// inject <script> in html file.
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
-		// inject <script> in html file.
+		// This plugin starts a TSchecker on a separate process - decreases build times significantly
+		new ForkTsCheckerWebpackPlugin({
+			tsconfig: "../tsconfig.json",
+			tslint: "../tslint.json",
+		}),
 	],
+	optimization: {
+		removeAvailableModules: false,
+		removeEmptyChunks: false,
+		splitChunks: false,
+	},
 };
