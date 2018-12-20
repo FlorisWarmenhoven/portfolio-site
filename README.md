@@ -4,7 +4,7 @@
 
 See the latest successful build live here: https://warmenhoven-portfolio.herokuapp.com/
 
-(Note: server may be sleeping, give it a few minutes to load)
+*(Note: server may be sleeping, give it a few minutes to load)*
 
 ## About this project
 
