@@ -7,6 +7,7 @@ import About from "./About";
 const StyledApp = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 `;
 
 const StyledPages = styled.div`

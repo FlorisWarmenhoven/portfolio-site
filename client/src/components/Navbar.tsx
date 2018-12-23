@@ -11,6 +11,11 @@ import {
 } from "react-icons/fa";
 
 const StyledNavigationBar = styled.div`
+  @media (max-width: 800px) {
+    display: none;
+    width: 0%;
+  }
+
   font-family: "PT Sans", sans-serif;
   background-color: #232a34;
   min-width: 215px;

@@ -11,6 +11,10 @@ const StyledAboutContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 115px 10%;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const StyledAboutPicture = styled.div`
@@ -19,25 +23,31 @@ const StyledAboutPicture = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("https://images.pexels.com/photos/1181703/pexels-photo-1181703.jpeg");
+
+  @media (max-width: 1200px) {
+    display: none;
+    width: 0%;
+  }
 `;
 
 const StyledSectionText = styled.div`
-  font-size: 110px;
+  font-size: 5rem;
   font-family: "Montserrat";
   font-weight: 700;
   letter-spacing: 0;
   color: #f2f2f2;
+  width: 100%;
 `;
 
 const StyledSloganText = styled.div`
-  font-size: 36px;
+  font-size: 2rem;
   color: #333c4e;
   font-family: "Montserrat";
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-top: 0.25em;
-  margin-bottom: 1em;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 `;
 
 const StyledIntroductionText = styled.div`
@@ -46,7 +56,7 @@ const StyledIntroductionText = styled.div`
   font-family: "Georgia";
   line-height: 36px;
   font-style: italic;
-  margin-bottom: 1.25em;
+  margin-bottom: 1.25rem;
 `;
 
 const StyledContentText = styled.div`

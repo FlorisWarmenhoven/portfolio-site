@@ -7,6 +7,10 @@ const StyledLanding = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg");
+
+  @media (max-width: 800px) {
+    max-height: 1100px;
+  }
 `;
 export default class Landing extends Component {
 	render() {
