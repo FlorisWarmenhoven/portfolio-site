@@ -33,17 +33,21 @@ module.exports = {
 	},
 
 	devServer: {
-		port: "3000",
 		// Change it if other port needs to be used
-		hot: true,
+		port: "3000",
 		// enable HMR on the server
+		hot: true,
+		// minimize the output to terminal.
 		noInfo: true,
 		quiet: false,
-		// minimize the output to terminal.
-		contentBase: path.resolve(__dirname, "..", "src"),
 		// match the output path
-		publicPath: "/",
+		contentBase: path.resolve(__dirname, "..", "src"),
 		// match the output `publicPath`
+		publicPath: "/",
+		// Compresses all files server to gzip format
+		compress: true,
+		// Allows site to use URLs referring to other server locations
+		disableHostCheck: true,
 	},
 
 	module: {
