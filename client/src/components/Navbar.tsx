@@ -13,7 +13,7 @@ import {
 const StyledNavigationBar = styled.div`
   font-family: "PT Sans", sans-serif;
   background-color: #232a34;
-  width: 215px;
+  min-width: 215px;
   min-height: 100vh;
   color: #f4ad24;
 
