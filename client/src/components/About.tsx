@@ -4,6 +4,7 @@ import styled from "../../types/styled-components";
 const StyledAbout = styled.div`
   display: flex;
   flex-direction: row;
+  background-attachment: scroll;
 `;
 
 const StyledAboutContent = styled.div`
