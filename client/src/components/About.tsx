@@ -23,7 +23,7 @@ const StyledAboutPicture = styled.div`
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://images.pexels.com/photos/1181703/pexels-photo-1181703.jpeg");
+  background-image: url("../assets/demo-img.webp");
 
   @media (max-width: 1200px) {
     display: none;
