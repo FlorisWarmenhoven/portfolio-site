@@ -1,6 +1,7 @@
 import path from "path";
 import express from "express";
 import server from "./yogaServer.js";
+import compression from "compression";
 
 // Variable port for Heroku or local development
 const port = process.env.PORT || 8000;
@@ -10,7 +11,7 @@ const options = {
 	port,
 	endpoint: "/api/graphql",
 	playground: "/api/playground",
-	subscriptions: "/api/subscriptions",
+	subscriptions: "/api/subscriptions"
 };
 
 // File path to client dist folder
@@ -21,9 +22,10 @@ const publicPath = express.static(
 // File path to index.html in client dist folder
 const indexPath = path.join(__dirname, "..", "..", "client", "dist/index.html");
 
+server.express.use(compression());
+
 // Serve static files from client dist folder
 server.express.use(publicPath);
-
 // if the request is for the api - pass it through
 // otherwise send the index.html
 server.express.use((req, res, next) => {
