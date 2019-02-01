@@ -8,12 +8,12 @@ module.exports = {
 	output: {
 		filename: "bundle.js",
 		// the output bundle
-		path: path.resolve(__dirname, "../dist"),
+		path: path.resolve(__dirname, "../dist")
 	},
 
 	resolve: {
 		// Add '.ts' and '.tsx' as resolvable extensions.
-		extensions: [".ts", ".tsx", ".js", ".json"],
+		extensions: [".ts", ".tsx", ".js", ".json"]
 	},
 
 	module: {
@@ -27,14 +27,23 @@ module.exports = {
 			// Load in CSS
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: ["style-loader", "css-loader"]
 			},
-		],
+			{
+				test: /\.(png|jpg|gif)$/i,
+				use: [
+					{
+						loader: "file-loader",
+						options: {}
+					}
+				]
+			}
+		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "../src/index.html"),
-		}),
+			template: path.resolve(__dirname, "../src/index.html")
+		})
 		// inject <script> in html file.
-	],
+	]
 };
