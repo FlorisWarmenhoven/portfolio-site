@@ -8,7 +8,7 @@ const StyledLanding = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg");
+  background-image: url("../assets/hero-img.webp");
 
   @media (max-width: 800px) {
     max-height: 1100px;

@@ -2,9 +2,8 @@
 
 # Floris' Portfolio Application
 
-See the latest successful build live here: https://warmenhoven-portfolio.herokuapp.com/
-
-*(Note: server may be sleeping, give it a few minutes to load)*
+See the latest successful build live here:
+https://floriswarmenhoven.nl
 
 ## About this project
 
