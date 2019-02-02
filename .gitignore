@@ -2,6 +2,7 @@
 dev.env
 prod.env
 test.env
+.env
 
 # Build files
 generated/

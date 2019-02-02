@@ -28,8 +28,8 @@ module.exports = {
 	devtool: "cheap-module-eval-source-map",
 
 	resolve: {
-		// Add '.ts' and '.tsx' as resolvable extensions.
-		extensions: [".ts", ".tsx", ".js", ".json"],
+		// Add resolvable extensions.
+		extensions: [".mjs", ".ts", ".tsx", ".js", ".json"],
 	},
 
 	devServer: {
