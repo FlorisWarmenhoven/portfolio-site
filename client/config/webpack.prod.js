@@ -51,6 +51,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
+		// Allows React to use process.env variables set in Heroku
 		new webpack.EnvironmentPlugin(["GRAPHQL_API_ENDPOINT"]),
 	],
 };

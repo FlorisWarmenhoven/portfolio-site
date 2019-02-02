@@ -8,9 +8,6 @@ const client = new ApolloClient({
 	uri: process.env.GRAPHQL_API_ENDPOINT || "http://localhost:8000/api/graphql",
 });
 
-console.log("ENV:", process.env.GRAPHQL_API_ENDPOINT);
-console.log(client);
-
 client
 	.query({
 		query: gql`

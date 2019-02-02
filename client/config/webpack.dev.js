@@ -107,7 +107,6 @@ module.exports = {
 			tsconfig: "../tsconfig.json",
 			tslint: "../tslint.json",
 		}),
-		new webpack.EnvironmentPlugin(["NODE_ENV"]),
 	],
 	optimization: {
 		removeAvailableModules: false,
