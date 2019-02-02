@@ -46,9 +46,10 @@ module.exports = {
 		],
 	},
 	plugins: [
+		// inject <script> in html file.
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
-		// inject <script> in html file.
+		new webpack.EnvironmentPlugin(["NODE_ENV"]),
 	],
 };
