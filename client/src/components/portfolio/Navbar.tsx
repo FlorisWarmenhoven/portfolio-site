@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import DefaultNavbar from "./Navbar/DefaultNavbar";
-import MobileNavbar from "./Navbar/MobileNavbar";
+import DefaultNavbar from "./navbars/DefaultNavbar";
+import MobileNavbar from "./navbars/MobileNavbar";
 
 export default class Navbar extends Component {
 	render() {

@@ -13,14 +13,14 @@ module.exports = {
 		"webpack/hot/only-dev-server",
 		// bundle the client for hot reloading
 		// only- means to only hot reload for successful updates
-		"./index.tsx"
+		"./index.tsx",
 		// the entry point of our app
 	],
 	output: {
 		filename: "hotloader.js",
 		// the output bundle
 		path: path.resolve(__dirname, "../dist"),
-		publicPath: "/"
+		publicPath: "/",
 		// necessary for HMR to know where to load the hot update chunks
 	},
 
@@ -29,7 +29,7 @@ module.exports = {
 
 	resolve: {
 		// Add '.ts' and '.tsx' as resolvable extensions.
-		extensions: [".ts", ".tsx", ".js", ".json"]
+		extensions: [".ts", ".tsx", ".js", ".json"],
 	},
 
 	devServer: {
@@ -47,7 +47,9 @@ module.exports = {
 		// Compresses all files server to gzip format
 		compress: true,
 		// Allows site to use URLs referring to other server locations
-		disableHostCheck: true
+		disableHostCheck: true,
+		// Will direct all 404s to the index.html
+		historyApiFallback: true,
 	},
 
 	module: {
@@ -61,9 +63,9 @@ module.exports = {
 					// this vastly increases build times.
 					// We add in type-checking through Fork TS Checker Webpack Plugin which starts the TS type checker
 					// on a separate process.
-					options: { transpileOnly: true, experimentalWatchApi: true }
+					options: { transpileOnly: true, experimentalWatchApi: true },
 				},
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 
 			// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
@@ -71,13 +73,13 @@ module.exports = {
 				enforce: "pre",
 				test: /\.js$/,
 				use: { loader: "source-map-loader" },
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 
 			// Load in CSS
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"]
+				use: ["style-loader", "css-loader"],
 			},
 			// Loads in .png, .jpg and .gif files
 			{
@@ -85,11 +87,11 @@ module.exports = {
 				use: [
 					{
 						loader: "file-loader",
-						options: {}
-					}
-				]
-			}
-		]
+						options: {},
+					},
+				],
+			},
+		],
 	},
 	plugins: [
 		// enable HMR globally
@@ -98,17 +100,17 @@ module.exports = {
 		new webpack.NamedModulesPlugin(),
 		// inject <script> in html file.
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "../src/index.html")
+			template: path.resolve(__dirname, "../src/index.html"),
 		}),
 		// This plugin starts a TSchecker on a separate process - decreases build times significantly
 		new ForkTsCheckerWebpackPlugin({
 			tsconfig: "../tsconfig.json",
-			tslint: "../tslint.json"
-		})
+			tslint: "../tslint.json",
+		}),
 	],
 	optimization: {
 		removeAvailableModules: false,
 		removeEmptyChunks: false,
-		splitChunks: false
-	}
+		splitChunks: false,
+	},
 };

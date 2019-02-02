@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styled from "../../types/styled-components";
-const aboutImage = require("../assets/temporary-image.jpg");
+import styled from "../../../types/styled-components";
+const aboutImage = require("../../assets/temporary-image.jpg");
 
 const StyledAbout = styled.div`
 	display: flex;

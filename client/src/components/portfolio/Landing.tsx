@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styled from "../../types/styled-components";
-const landingImage = require("../assets/landing-image.jpg");
+import styled from "../../../types/styled-components";
+const landingImage = require("../../assets/landing-image.jpg");
 
 const StyledLanding = styled.div`
 	background-position: 50% 50%;
