@@ -51,6 +51,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, "../src/index.html"),
 		}),
-		new webpack.EnvironmentPlugin(["NODE_ENV"]),
+		new webpack.EnvironmentPlugin(["GRAPHQL_API_ENDPOINT"]),
 	],
 };
