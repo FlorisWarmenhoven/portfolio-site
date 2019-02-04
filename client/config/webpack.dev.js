@@ -50,6 +50,13 @@ module.exports = {
 		disableHostCheck: true,
 		// Will direct all 404s to the index.html
 		historyApiFallback: true,
+		proxy: {
+			"^/api/*": {
+				target: "http://localhost:8000/api/",
+				secure: false,
+				changeOrigin: true,
+			},
+		},
 	},
 
 	module: {

@@ -15,6 +15,7 @@ const StyledPages = styled.div`
 		margin-left: 0px;
 	}
 `;
+
 export class Portfolio extends Component {
 	render() {
 		return (
