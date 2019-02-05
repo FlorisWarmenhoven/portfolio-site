@@ -2,13 +2,13 @@ import axios from "axios";
 
 export default async () => {
 	const token = await localStorage.getItem("token");
-	const response = await axios.get("http://localhost:8000/api/authenticate", {
-		headers: { Authorization: `Bearer ${token}` },
-	});
+	try {
+		await axios.get("http://localhost:8000/api/authenticate", {
+			headers: { Authorization: `Bearer ${token}` },
+		});
 
-	if (response.status === 200) {
 		return true;
+	} catch (error) {
+		return false;
 	}
-
-	return false;
 };
