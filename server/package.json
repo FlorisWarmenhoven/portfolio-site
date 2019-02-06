@@ -6,6 +6,7 @@
 	"scripts": {
 		"start": "env-cmd ./config/dev.env nodemon ./src/index.js --ext js,graphql --exec babel-node",
 		"get-schema": "graphql get-schema -p prisma",
+		"get-schema-local": "graphql get-schema -p prisma --dotenv ./config/prod.env",
 		"prisma-deploy-prod": "cd prisma && prisma deploy -e ../config/prod.env",
 		"prisma-deploy-dev": "cd prisma && prisma deploy -e ../config/dev.env",
 		"prisma-deploy-test": "cd prisma && prisma deploy -e ../config/test.env",

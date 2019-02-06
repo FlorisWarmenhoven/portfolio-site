@@ -25,6 +25,7 @@ type Technology {
 type Query {
 	users: [User!]!
 	projects: [Project!]!
+	technologies: [Technology!]!
 }
 
 # MUTATIONS
@@ -33,6 +34,8 @@ type Mutation {
 	createUser(data: CreateUserInput!): AuthPayload!
 	deleteUser(id: ID!): User!
 	createProject(data: CreateProjectInput!): Project!
+	createTechnology(data: CreateTechnologyInput!): Technology!
+	deleteTechnology(id: ID!): Technology!
 }
 
 # INPUT TYPES
@@ -57,6 +60,11 @@ input UpdateUserInput {
 input LoginUserInput {
 	email: String!
 	password: String!
+}
+
+input CreateTechnologyInput {
+	name: String!
+	iconUrl: String!
 }
 
 # OUTPUT TYPES

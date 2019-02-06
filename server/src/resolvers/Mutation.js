@@ -63,6 +63,15 @@ const Mutation = {
 			token: generateToken(user.id),
 		};
 	},
+	async createTechnology(parent, args, { prisma, request }, info) {
+		// authenticateUser(request);
+
+		return await prisma.mutation.createTechnology(args);
+	},
+
+	deleteTechnology(parent, args, { prisma }, info) {
+		return prisma.mutation.deleteTechnology({ where: { id: args.id } });
+	},
 };
 
 export { Mutation as default };
