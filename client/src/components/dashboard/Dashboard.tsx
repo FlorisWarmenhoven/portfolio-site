@@ -13,6 +13,10 @@ export default class Dashboard extends Component<Props> {
 		}
 	}
 	render() {
-		return <div>This is the dashboard.</div>;
+		return (
+			<div>
+				<h1>This is the dashboard.</h1>
+			</div>
+		);
 	}
 }
