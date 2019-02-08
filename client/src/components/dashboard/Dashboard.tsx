@@ -1,22 +1,26 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import authenticateUser from "../../lib/authenticateUser";
 import { RouteComponentProps } from "react-router-dom";
 
 interface Props extends RouteComponentProps {}
-export default class Dashboard extends Component<Props> {
-	async componentDidMount() {
-		const isAuthenticated = await authenticateUser();
+
+export default function Dashboard(props: Props) {
+	function isUserAuthenticated() {
+		return authenticateUser();
+	}
+
+	useEffect(() => {
+		const isAuthenticated = isUserAuthenticated();
 
 		if (!isAuthenticated) {
 			localStorage.removeItem("token");
-			this.props.history.push("/login");
+			props.history.push("/login");
 		}
-	}
-	render() {
-		return (
-			<div>
-				<h1>This is the dashboard.</h1>
-			</div>
-		);
-	}
+	}, []);
+
+	return (
+		<div>
+			<h1>This is the dashboard.</h1>
+		</div>
+	);
 }

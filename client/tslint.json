@@ -8,7 +8,8 @@
 		"import-name": false,
 		"ter-indent": false,
 		"no-boolean-literal-compare": true,
-		"quotemark": [true, "double"]
+		"quotemark": [true, "double"],
+		"align": [true, "parameters", "**statements**"]
 	},
 	"rulesDirectory": [],
 	"linterOptions": {
