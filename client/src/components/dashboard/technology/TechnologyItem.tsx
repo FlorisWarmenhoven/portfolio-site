@@ -1,27 +1,8 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
+import React, { Component, FC } from "react";
 import { Mutation } from "react-apollo";
 import { DataProxy } from "apollo-cache";
-
-const DELETE_TECHNOLOGY = gql`
-	mutation deleteTechnology($id: ID!) {
-		deleteTechnology(id: $id) {
-			id
-			name
-			iconUrl
-		}
-	}
-`;
-
-const GET_TECHNOLOGIES = gql`
-	query getTechnologies {
-		technologies {
-			id
-			name
-			iconUrl
-		}
-	}
-`;
+import { GET_TECHNOLOGIES } from "../../../graphql/queries";
+import { DELETE_TECHNOLOGY } from "../../../graphql/mutations";
 
 interface Props {
 	technology: {
@@ -31,12 +12,10 @@ interface Props {
 	};
 }
 
-export default class TechnologyItem extends Component<Props> {
-	handleDelete = async (e: any, deleteTechnology: Function, id: string) => {
-		await deleteTechnology({ variables: { id } });
-	}
+export const TechnologyItem: FC<Props> = props => {
+	const { id, name, iconUrl } = props.technology;
 
-	updateCache(cache: DataProxy, deleteTechnology: any) {
+	function updateCache(cache: DataProxy, deleteTechnology: any) {
 		// Retrieve current technologies stored in cache
 		const { technologies } = cache.readQuery({
 			query: GET_TECHNOLOGIES,
@@ -54,27 +33,27 @@ export default class TechnologyItem extends Component<Props> {
 		});
 	}
 
-	render() {
-		const { id, name, iconUrl } = this.props.technology;
-
-		return (
-			<Mutation
-				mutation={DELETE_TECHNOLOGY}
-				update={(cache, { data: { deleteTechnology } }) => {
-					this.updateCache(cache, deleteTechnology);
-				}}
-			>
-				{deleteTechnology => (
-					<div>
-						{name} - <img src={iconUrl} style={{ height: 20, width: "auto" }} />
-						<button onClick={e => this.handleDelete(e, deleteTechnology, id)}>
-							Delete
-						</button>
-						<br />
-						<br />
-					</div>
-				)}
-			</Mutation>
-		);
+	function handleDelete(deleteTechnology: Function, id: string) {
+		deleteTechnology({ variables: { id } });
 	}
-}
+
+	return (
+		<Mutation
+			mutation={DELETE_TECHNOLOGY}
+			update={(cache, { data: { deleteTechnology } }) => {
+				updateCache(cache, deleteTechnology);
+			}}
+		>
+			{deleteTechnology => (
+				<div>
+					{name} - <img src={iconUrl} style={{ height: 20, width: "auto" }} />
+					<button onClick={e => handleDelete(deleteTechnology, id)}>
+						Delete
+					</button>
+					<br />
+					<br />
+				</div>
+			)}
+		</Mutation>
+	);
+};

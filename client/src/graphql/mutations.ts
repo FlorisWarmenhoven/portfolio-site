@@ -21,3 +21,13 @@ export const CREATE_TECHNOLOGY = gql`
 		}
 	}
 `;
+
+export const DELETE_TECHNOLOGY = gql`
+	mutation deleteTechnology($id: ID!) {
+		deleteTechnology(id: $id) {
+			id
+			name
+			iconUrl
+		}
+	}
+`;

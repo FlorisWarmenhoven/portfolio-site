@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import TechnologyItem from "./TechnologyItem";
+import { TechnologyItem } from "./TechnologyItem";
 
 const GET_TECHNOLOGIES = gql`
 	{
