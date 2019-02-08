@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Routes } from "../Routes";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "react-apollo";
-import apolloClient from "../apolloClient";
+import { apolloClient } from "../apolloClient";
 
 interface Props {}
 

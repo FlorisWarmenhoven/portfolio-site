@@ -1,5 +1,5 @@
 import React, { useEffect, FC } from "react";
-import authenticateUser from "../../lib/authenticateUser";
+import { authenticateUser } from "../../lib/authenticateUser";
 import { RouteComponentProps } from "react-router-dom";
 
 interface Props extends RouteComponentProps {}

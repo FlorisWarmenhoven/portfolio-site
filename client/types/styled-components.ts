@@ -13,4 +13,5 @@ const {
 } = styledComponents as ThemedStyledComponentsModule<ThemeInterface>;
 
 export { css, createGlobalStyle, keyframes, ThemeProvider };
+// tslint:disable-next-line:no-default-export
 export default styled;
