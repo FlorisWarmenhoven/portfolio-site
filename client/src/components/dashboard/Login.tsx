@@ -1,68 +1,53 @@
-import React, { Component, FormEvent } from "react";
-import gql from "graphql-tag";
+import React, { useState, FC } from "react";
 import { Mutation } from "react-apollo";
-import { Redirect } from "react-router";
+import { Redirect, RouteComponentProps } from "react-router";
+import { LOGIN_USER } from "../../graphql/mutations";
 
-const LOGIN_USER = gql`
-	mutation loginUser($email: String!, $password: String!) {
-		login(data: { email: $email, password: $password }) {
-			user {
-				id
-				name
-			}
-			token
-		}
-	}
-`;
+interface Props extends RouteComponentProps {}
 
-interface Props {
-	history: any;
-	isAuthenticated: boolean;
-	setToken: Function;
-}
+export const Login: FC<Props> = props => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
-export default class Login extends Component<Props> {
-	email: HTMLInputElement;
-	password: HTMLInputElement;
-
-	handleLogin = async (e: FormEvent<HTMLFormElement>, login: any) => {
+	async function handleLogin(e: any, login: any) {
 		e.preventDefault();
+
 		const response = await login({
 			variables: {
-				email: this.email.value,
-				password: this.password.value,
+				email,
+				password,
 			},
 		});
 
 		await localStorage.setItem("token", response.data.login.token);
-		this.props.history.push("/dashboard");
+		props.history.push("/dashboard");
 	}
 
-	render() {
-		if (localStorage.getItem("token")) {
-			return <Redirect to="/dashboard" />;
-		}
-
-		return (
-			<Mutation mutation={LOGIN_USER}>
-				{login => (
-					<div>
-						<form onSubmit={e => this.handleLogin(e, login)}>
-							<input
-								type="text"
-								placeholder="Email"
-								ref={input => (this.email = input)}
-							/>
-							<input
-								type="password"
-								placeholder="Password"
-								ref={input => (this.password = input)}
-							/>
-							<button type="submit">submit</button>
-						</form>
-					</div>
-				)}
-			</Mutation>
-		);
+	if (localStorage.getItem("token")) {
+		return <Redirect to="/dashboard" />;
 	}
-}
+
+	return (
+		<Mutation mutation={LOGIN_USER}>
+			{login => (
+				<div>
+					<form onSubmit={e => handleLogin(e, login)}>
+						<input
+							type="text"
+							placeholder="Email"
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+						/>
+						<input
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={e => setPassword(e.target.value)}
+						/>
+						<button type="submit">submit</button>
+					</form>
+				</div>
+			)}
+		</Mutation>
+	);
+};
