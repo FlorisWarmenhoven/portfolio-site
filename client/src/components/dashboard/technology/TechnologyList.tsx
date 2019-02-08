@@ -1,4 +1,4 @@
-import React, { Component, FC } from "react";
+import React, { FC } from "react";
 import { Query } from "react-apollo";
 import { TechnologyItem } from "./TechnologyItem";
 import { GET_TECHNOLOGIES } from "../../../graphql/queries";
