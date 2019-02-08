@@ -1,6 +1,6 @@
 {
 	"defaultSeverity": "warning",
-	"extends": ["tslint-config-airbnb"],
+	"extends": ["tslint-config-airbnb", "tslint-react-recommended"],
 	"jsRules": {},
 	"rules": {
 		"variable-name": false,
