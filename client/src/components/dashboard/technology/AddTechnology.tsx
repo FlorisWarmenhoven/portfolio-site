@@ -1,62 +1,43 @@
-import React, { Component, ChangeEvent } from "react";
-import gql from "graphql-tag";
+import React, { FC, useState } from "react";
 import { Mutation } from "react-apollo";
+import { CREATE_TECHNOLOGY } from "../../../graphql/mutations";
 
-const CREATE_TECHNOLOGY = gql`
-	mutation createTechnology($name: String!, $iconUrl: String!) {
-		createTechnology(data: { name: $name, iconUrl: $iconUrl }) {
-			id
-			name
-			iconUrl
-		}
-	}
-`;
+interface Props {}
 
-export default class AddTechnologyForm extends Component {
-	state = {
-		name: "",
-		iconUrl: "",
-	};
+export const AddTechnology: FC<Props> = props => {
+	const [name, setName] = useState("");
+	const [iconUrl, setIconUrl] = useState("");
 
-	handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		this.setState({
-			[e.target.name]: e.target.value,
-		});
-	}
-
-	handleFormSubmit = (e: any, addTechnology: Function) => {
-		const { name, iconUrl } = this.state;
-
+	function handleFormSubmit(e: any, addTechnology: Function) {
 		e.preventDefault();
-		addTechnology({
-			variables: { name, iconUrl },
-		});
+		addTechnology({ variables: { name, iconUrl } });
 	}
-	render() {
-		return (
-			<Mutation mutation={CREATE_TECHNOLOGY}>
-				{addTechnology => (
-					<form onSubmit={e => this.handleFormSubmit(e, addTechnology)}>
-						<label>
-							Name:
-							<input
-								type="text"
-								name="name"
-								onChange={this.handleInputChange}
-							/>
-						</label>
-						<label>
-							SVG URL:
-							<input
-								type="text"
-								name="iconUrl"
-								onChange={this.handleInputChange}
-							/>
-						</label>
-						<input type="submit" value="Add" />
-					</form>
-				)}
-			</Mutation>
-		);
-	}
-}
+
+	return (
+		<Mutation mutation={CREATE_TECHNOLOGY}>
+			{addTechnology => (
+				<form onSubmit={e => handleFormSubmit(e, addTechnology)}>
+					<label>
+						Name:
+						<input
+							type="text"
+							name="name"
+							value={name}
+							onChange={e => setName(e.target.value)}
+						/>
+					</label>
+					<label>
+						SVG URL:
+						<input
+							type="text"
+							name="iconUrl"
+							value={iconUrl}
+							onChange={e => setIconUrl(e.target.value)}
+						/>
+					</label>
+					<input type="submit" value="Add" />
+				</form>
+			)}
+		</Mutation>
+	);
+};

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, FC } from "react";
 import authenticateUser from "../../lib/authenticateUser";
 import { RouteComponentProps } from "react-router-dom";
 
 interface Props extends RouteComponentProps {}
 
-export default function Dashboard(props: Props) {
+export const Dashboard: FC<Props> = props => {
 	function isUserAuthenticated() {
 		return authenticateUser();
 	}
@@ -23,4 +23,4 @@ export default function Dashboard(props: Props) {
 			<h1>This is the dashboard.</h1>
 		</div>
 	);
-}
+};

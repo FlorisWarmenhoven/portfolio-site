@@ -11,3 +11,13 @@ export const LOGIN_USER = gql`
 		}
 	}
 `;
+
+export const CREATE_TECHNOLOGY = gql`
+	mutation createTechnology($name: String!, $iconUrl: String!) {
+		createTechnology(data: { name: $name, iconUrl: $iconUrl }) {
+			id
+			name
+			iconUrl
+		}
+	}
+`;
