@@ -1,12 +1,13 @@
-import React from "react";
-import TechnologyList from "./TechnologyList";
+import React, { FC } from "react";
+import { TechnologyList } from "./TechnologyList";
 import { AddTechnology } from "./AddTechnology";
 
-export default function TechnologyPage() {
+interface Props {}
+export const TechnologyPage: FC<Props> = props => {
 	return (
 		<div>
 			<TechnologyList />
 			<AddTechnology />
 		</div>
 	);
-}
+};
