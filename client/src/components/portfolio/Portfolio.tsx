@@ -1,8 +1,22 @@
-import React, { Component } from "react";
-import Navbar from "./Navbar";
-import Landing from "./Landing";
+import React, { FC } from "react";
+import { Navbar } from "./Navbar";
+import { Landing } from "./Landing";
 import styled from "../../../types/styled-components";
-import About from "./About";
+import { About } from "./About";
+
+interface Props {}
+
+export const Portfolio: FC<Props> = props => {
+	return (
+		<StyledApp>
+			<Navbar />
+			<StyledPages>
+				<Landing />
+				<About />
+			</StyledPages>
+		</StyledApp>
+	);
+};
 
 const StyledApp = styled.div``;
 
@@ -15,17 +29,3 @@ const StyledPages = styled.div`
 		margin-left: 0px;
 	}
 `;
-
-export class Portfolio extends Component {
-	render() {
-		return (
-			<StyledApp>
-				<Navbar />
-				<StyledPages>
-					<Landing />
-					<About />
-				</StyledPages>
-			</StyledApp>
-		);
-	}
-}

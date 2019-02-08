@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, FC } from "react";
 import styled from "../../../../types/styled-components";
 import { FaBars } from "react-icons/fa";
 
-export default class MobileNavbar extends Component {
-	toggleLinks = () => {
+interface Props {}
+
+export const MobileNavbar: FC<Props> = props => {
+	function toggleLinks() {
 		const linksElement = document.getElementById("myLinks");
 		if (linksElement.style.display === "block") {
 			linksElement.style.display = "none";
@@ -12,30 +14,28 @@ export default class MobileNavbar extends Component {
 		}
 	}
 
-	render() {
-		return (
-			<div>
-				<StyledMobileNavbar>
-					<StyledLogoArea>
-						<a href="">LOGO</a>
-					</StyledLogoArea>
-					<NavLinks id="myLinks">
-						<a href="#">Home</a>
-						<a href="">About</a>
-						<a href="">Work</a>
-						<a href="">Experience</a>
-						<a href="">Skill</a>
-						<a href="">CV</a>
-						<a href="">Contact</a>
-					</NavLinks>
-					<a className="icon" onClick={this.toggleLinks}>
-						<FaBars />
-					</a>
-				</StyledMobileNavbar>
-			</div>
-		);
-	}
-}
+	return (
+		<div>
+			<StyledMobileNavbar>
+				<StyledLogoArea>
+					<a href="">LOGO</a>
+				</StyledLogoArea>
+				<NavLinks id="myLinks">
+					<a href="#">Home</a>
+					<a href="">About</a>
+					<a href="">Work</a>
+					<a href="">Experience</a>
+					<a href="">Skill</a>
+					<a href="">CV</a>
+					<a href="">Contact</a>
+				</NavLinks>
+				<a className="icon" onClick={toggleLinks}>
+					<FaBars />
+				</a>
+			</StyledMobileNavbar>
+		</div>
+	);
+};
 
 const StyledMobileNavbar = styled.div`
 	/* Ensures Mobile navbar hides when it is larger than 800px */

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Portfolio } from "./components/portfolio/Portfolio";
 import { Login } from "./components/dashboard/Login";
@@ -12,15 +12,15 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
 	return <Component props={rest} />;
 };
 
-export default class Routes extends Component {
-	render() {
-		return (
-			<Switch>
-				<Route exact path="/login" component={Login} />
-				<PrivateRoute exact path="/dashboard" component={Dashboard} />
-				<Route exact path="/technologies" component={TechnologyPage} />
-				<Route path="/" component={Portfolio} />
-			</Switch>
-		);
-	}
-}
+interface Props {}
+
+export const Routes: FC<Props> = props => {
+	return (
+		<Switch>
+			<Route exact path="/login" component={Login} />
+			<PrivateRoute exact path="/dashboard" component={Dashboard} />
+			<Route exact path="/technologies" component={TechnologyPage} />
+			<Route path="/" component={Portfolio} />
+		</Switch>
+	);
+};

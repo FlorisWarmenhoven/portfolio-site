@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import styled from "../../../../types/styled-components";
 import {
 	FaHome,
@@ -10,65 +10,64 @@ import {
 	FaFileAlt,
 } from "react-icons/fa";
 
-export default class DefaultNavbar extends Component {
-	render() {
-		return (
-			<div>
-				<StyledNavBar>
-					<StyledLogoArea>
-						<li id="logo">
-							<a href="">LOGO</a>
-						</li>
-					</StyledLogoArea>
-					<ul>
-						<li>
-							<a href="#">
-								<FaHome className="icon" />
-								Home
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaUser className="icon" />
-								About
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaBriefcase className="icon" />
-								Work
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaLightbulb className="icon" />
-								Experience
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaChartBar className="icon" />
-								Skill
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaFileAlt className="icon" />
-								Cv
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<FaPhone className="icon" />
-								Contact
-							</a>
-						</li>
-					</ul>
-				</StyledNavBar>
-			</div>
-		);
-	}
-}
+interface Props {}
+export const DefaultNavbar: FC<Props> = props => {
+	return (
+		<div>
+			<StyledNavBar>
+				<StyledLogoArea>
+					<li id="logo">
+						<a href="">LOGO</a>
+					</li>
+				</StyledLogoArea>
+				<ul>
+					<li>
+						<a href="#">
+							<FaHome className="icon" />
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaUser className="icon" />
+							About
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaBriefcase className="icon" />
+							Work
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaLightbulb className="icon" />
+							Experience
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaChartBar className="icon" />
+							Skill
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaFileAlt className="icon" />
+							Cv
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<FaPhone className="icon" />
+							Contact
+						</a>
+					</li>
+				</ul>
+			</StyledNavBar>
+		</div>
+	);
+};
 
 const StyledNavBar = styled.div`
 	@media (max-width: 800px) {

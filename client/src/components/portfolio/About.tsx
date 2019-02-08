@@ -1,6 +1,40 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import styled from "../../../types/styled-components";
 const aboutImage = require("../../assets/temporary-image.jpg");
+
+interface Props {}
+
+export const About: FC<Props> = props => {
+	return (
+		<StyledAbout>
+			<StyledAboutContent>
+				<StyledSectionText>About.</StyledSectionText>
+				<StyledSloganText>Inspired by knowledge.</StyledSloganText>
+				<StyledIntroductionText>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+					consectetur a nisl a tincidunt. Etiam placerat velit sem, vel suscipit
+					augue fermentum nec. Sociis natoque penatibus et magnis dis.
+				</StyledIntroductionText>
+				<StyledContentText>
+					Parturient montes, nascetur ridiculus mus. Maecenas ac finibus turpis.
+					Vivamus et elit in leo pretium pharetra. Sed lobortis urna turpis, id
+					ultricies dolor pharetra ac. Proin suscipit odio non libero
+					ullamcorper, sit amet tincidunt lacus porta. Aenean sodales lectus ex,
+					non sagittis nibh ultricies at. Aliquam nec dolor posuere, vulputate
+					mauris at, fermentum Donec ligula metus, hendrerit at malesuada vel,
+					facilisis sit amet dui. Aliquam erat volutpat. Nulla eget ornare
+					dolor. Pellentesque convallis dui ante, eu pretium ipsum bibendum
+					fermentum. Proin dui arcu, mattis non ultricies ac, pellentesque eget
+					ipsum. Nullam tincidunt orci in interdum facilisis. Vestibulum eu
+					neque et mauris vestibulum pretium vel vitae enim. Vestibulum id ipsum
+					risus. Suspendisse lectus tortor, pretium ut orci vitae, mollis
+					iaculis risus.
+				</StyledContentText>
+			</StyledAboutContent>
+			<StyledAboutPicture />
+		</StyledAbout>
+	);
+};
 
 const StyledAbout = styled.div`
 	display: flex;
@@ -67,38 +101,3 @@ const StyledContentText = styled.div`
 	font-size: 15px;
 	line-height: 36px;
 `;
-
-export default class About extends Component {
-	render() {
-		return (
-			<StyledAbout>
-				<StyledAboutContent>
-					<StyledSectionText>About.</StyledSectionText>
-					<StyledSloganText>Inspired by knowledge.</StyledSloganText>
-					<StyledIntroductionText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-						consectetur a nisl a tincidunt. Etiam placerat velit sem, vel
-						suscipit augue fermentum nec. Sociis natoque penatibus et magnis
-						dis.
-					</StyledIntroductionText>
-					<StyledContentText>
-						Parturient montes, nascetur ridiculus mus. Maecenas ac finibus
-						turpis. Vivamus et elit in leo pretium pharetra. Sed lobortis urna
-						turpis, id ultricies dolor pharetra ac. Proin suscipit odio non
-						libero ullamcorper, sit amet tincidunt lacus porta. Aenean sodales
-						lectus ex, non sagittis nibh ultricies at. Aliquam nec dolor
-						posuere, vulputate mauris at, fermentum Donec ligula metus,
-						hendrerit at malesuada vel, facilisis sit amet dui. Aliquam erat
-						volutpat. Nulla eget ornare dolor. Pellentesque convallis dui ante,
-						eu pretium ipsum bibendum fermentum. Proin dui arcu, mattis non
-						ultricies ac, pellentesque eget ipsum. Nullam tincidunt orci in
-						interdum facilisis. Vestibulum eu neque et mauris vestibulum pretium
-						vel vitae enim. Vestibulum id ipsum risus. Suspendisse lectus
-						tortor, pretium ut orci vitae, mollis iaculis risus.
-					</StyledContentText>
-				</StyledAboutContent>
-				<StyledAboutPicture />
-			</StyledAbout>
-		);
-	}
-}

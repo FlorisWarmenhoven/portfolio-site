@@ -1,6 +1,12 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import styled from "../../../types/styled-components";
 const landingImage = require("../../assets/landing-image.jpg");
+
+interface Props {}
+
+export const Landing: FC<Props> = props => {
+	return <StyledLanding />;
+};
 
 const StyledLanding = styled.div`
 	background-position: 50% 50%;
@@ -15,8 +21,3 @@ const StyledLanding = styled.div`
 		max-height: 1100px;
 	}
 `;
-export default class Landing extends Component {
-	render() {
-		return <StyledLanding />;
-	}
-}

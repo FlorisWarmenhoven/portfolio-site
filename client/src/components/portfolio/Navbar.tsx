@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import DefaultNavbar from "./navbars/DefaultNavbar";
-import MobileNavbar from "./navbars/MobileNavbar";
+import React, { FC } from "react";
+import { DefaultNavbar } from "./navbars/DefaultNavbar";
+import { MobileNavbar } from "./navbars/MobileNavbar";
 
-export default class Navbar extends Component {
-	render() {
-		return (
-			<>
-				<DefaultNavbar />
-				<MobileNavbar />
-			</>
-		);
-	}
-}
+interface Props {}
+
+export const Navbar: FC<Props> = props => {
+	return (
+		<>
+			<DefaultNavbar />
+			<MobileNavbar />
+		</>
+	);
+};
