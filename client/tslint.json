@@ -1,6 +1,6 @@
 {
 	"defaultSeverity": "warning",
-	"extends": ["tslint-config-airbnb", "tslint-react-recommended"],
+	"extends": ["tslint-config-airbnb"],
 	"jsRules": {},
 	"rules": {
 		"variable-name": false,
@@ -9,7 +9,9 @@
 		"ter-indent": false,
 		"no-boolean-literal-compare": true,
 		"quotemark": [true, "double"],
-		"align": [true, "parameters", "**statements**"]
+		"align": [true, "parameters", "**statements**"],
+		"ter-arrow-parens": ["warning", "as-needed"],
+		"no-default-export": true
 	},
 	"rulesDirectory": [],
 	"linterOptions": {
