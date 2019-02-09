@@ -21,11 +21,11 @@ export const Login: FC<Props> = props => {
 		});
 
 		await localStorage.setItem("token", response.data.login.token);
-		props.history.push("/dashboard");
+		props.history.push("/portal/dashboard");
 	}
 
 	if (localStorage.getItem("token")) {
-		return <Redirect to="/dashboard" />;
+		return <Redirect to="/portal/dashboard" />;
 	}
 
 	return (
