@@ -42,6 +42,7 @@ const StyledNavBar = styled.div`
 	min-height: 100vh;
 	color: #f4ad24;
 	position: fixed;
+	top: 0px;
 
 	ul {
 		margin: 0px;

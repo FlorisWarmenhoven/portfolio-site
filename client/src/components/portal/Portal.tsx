@@ -6,6 +6,7 @@ import { PrivateRoute } from "../shared/PrivateRoute";
 import { TechnologyPage } from "./technology/TechnologyPage";
 import { Dashboard } from "./Dashboard";
 import { SideNav } from "./navigation/SideNav";
+import { TopNav } from "./navigation/TopNav";
 
 interface Props extends RouteComponentProps {}
 
@@ -26,6 +27,7 @@ export const Portal: FC<Props> = props => {
 	return (
 		<>
 			<SideNav {...props} />
+			<TopNav {...props} />
 			<StyledPortal>
 				<Switch>
 					<PrivateRoute
@@ -47,6 +49,7 @@ const StyledPortal = styled.div`
 	display: flex;
 	flex-direction: column;
 	background-color: lightblue;
-	height: 100vh;
+	height: calc(100vh - 50px);
 	margin-left: 250px;
+	margin-top: 50px;
 `;
