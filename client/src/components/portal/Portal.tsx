@@ -2,9 +2,10 @@ import React, { useEffect, FC } from "react";
 import { authenticateUser } from "../../lib/authenticateUser";
 import { RouteComponentProps, Switch } from "react-router-dom";
 import styled from "../../../types/styled-components";
-import { SideNav } from "./SideNav";
 import { PrivateRoute } from "../shared/PrivateRoute";
 import { TechnologyPage } from "./technology/TechnologyPage";
+import { Dashboard } from "./Dashboard";
+import { SideNav } from "./navigation/SideNav";
 
 interface Props extends RouteComponentProps {}
 
@@ -22,28 +23,30 @@ export const Portal: FC<Props> = props => {
 		}
 	}, []);
 
-	function handleLogout() {
-		localStorage.removeItem("token");
-		props.history.push("/login");
-	}
-
 	return (
-		<StyledDashboard>
-			<SideNav />
-			<button onClick={() => handleLogout()}>Logout</button>
-			<h1>This is the dashboard.</h1>
+		<>
+			<SideNav {...props} />
+			<StyledPortal>
+				<Switch>
+					<PrivateRoute
+						path={`${props.match.url}/dashboard`}
+						component={Dashboard}
+					/>
 
-			<Switch>
-				<PrivateRoute
-					path={`${props.match.url}/technologies`}
-					component={TechnologyPage}
-				/>
-			</Switch>
-		</StyledDashboard>
+					<PrivateRoute
+						path={`${props.match.url}/technologies`}
+						component={TechnologyPage}
+					/>
+				</Switch>
+			</StyledPortal>
+		</>
 	);
 };
 
-const StyledDashboard = styled.div`
+const StyledPortal = styled.div`
+	display: flex;
+	flex-direction: column;
 	background-color: lightblue;
 	height: 100vh;
+	margin-left: 250px;
 `;

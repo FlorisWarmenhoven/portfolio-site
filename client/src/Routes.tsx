@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Portfolio } from "./components/portfolio/Portfolio";
 import { PrivateRoute } from "./components/shared/PrivateRoute";
 import { Portal } from "./components/portal/Portal";
