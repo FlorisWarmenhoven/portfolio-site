@@ -2,6 +2,7 @@ import React, { useState, FC } from "react";
 import { Mutation } from "react-apollo";
 import { Redirect, RouteComponentProps } from "react-router";
 import { LOGIN_USER } from "../../graphql/mutations";
+import styled from "../../../types/styled-components";
 
 interface Props extends RouteComponentProps {}
 
@@ -30,24 +31,57 @@ export const Login: FC<Props> = props => {
 	return (
 		<Mutation mutation={LOGIN_USER}>
 			{login => (
-				<div>
-					<form onSubmit={e => handleLogin(e, login)}>
-						<input
+				<StyledLogin>
+					<StyledForm onSubmit={e => handleLogin(e, login)}>
+						<StyledInput
 							type="text"
 							placeholder="Email"
 							value={email}
 							onChange={e => setEmail(e.target.value)}
 						/>
-						<input
+						<StyledInput
 							type="password"
 							placeholder="Password"
 							value={password}
 							onChange={e => setPassword(e.target.value)}
 						/>
-						<button type="submit">submit</button>
-					</form>
-				</div>
+						<StyledButton type="submit">submit</StyledButton>
+					</StyledForm>
+				</StyledLogin>
 			)}
 		</Mutation>
 	);
 };
+
+const StyledLogin = styled.div`
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	height: 100vh;
+	background-color: lightblue;
+	flex-direction: column;
+	width: 100%;
+`;
+
+const StyledForm = styled.form`
+	width: 60%;
+`;
+
+const StyledInput = styled.input`
+	display: flex;
+	margin-bottom: 5px;
+	height: 50px;
+	font-size: 25px;
+	border: none;
+	border-radius: 10px;
+	padding: 0px;
+	text-align: center;
+	width: 100%;
+`;
+
+const StyledButton = styled.button`
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+`;

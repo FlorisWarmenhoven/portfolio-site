@@ -18,8 +18,14 @@ export const Dashboard: FC<Props> = props => {
 		}
 	}, []);
 
+	function handleLogout() {
+		localStorage.removeItem("token");
+		props.history.push("/login");
+	}
+
 	return (
 		<div>
+			<button onClick={() => handleLogout()}>Logout</button>
 			<h1>This is the dashboard.</h1>
 		</div>
 	);
