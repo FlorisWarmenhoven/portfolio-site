@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { TechnologyList } from "./TechnologyList";
-import { CreateTechnology } from "./AddTechnology";
+import { CreateTechnology } from "./CreateTechnology";
 import { Query, Mutation } from "react-apollo";
 import { GET_TECHNOLOGIES } from "../../../graphql/queries";
 import {
