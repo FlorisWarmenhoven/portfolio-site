@@ -19,6 +19,7 @@ This application will feature:
 - Complete CI/CD pipeline with CircleCI, Heroku and CodeClimate for test coverage
 - Extensive unit testing and integration testing
 - Authentication with JWT
+- Webpack
 
 ## How to use
 
