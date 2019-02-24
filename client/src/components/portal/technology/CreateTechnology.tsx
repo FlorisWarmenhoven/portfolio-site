@@ -35,7 +35,7 @@ export const CreateTechnology: FC<Props> = props => {
 					onChange={e => setIconUrl(e.target.value)}
 				/>
 			</label>
-			<input type="submit" value="Add" />
+			<input type="submit" value="Add Technology" />
 		</form>
 	);
 };
