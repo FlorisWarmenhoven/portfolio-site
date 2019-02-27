@@ -11,6 +11,7 @@ type Project {
 	id: ID!
 	title: String!
 	description: String!
+	githubUrl: String!
 	imageUrl: String!
 	technologies: [Technology!]!
 }
@@ -42,7 +43,9 @@ type Mutation {
 input CreateProjectInput {
 	title: String!
 	description: String!
+	githubUrl: String!
 	imageUrl: String!
+	technologies: [Technology!]!
 }
 
 input CreateUserInput {

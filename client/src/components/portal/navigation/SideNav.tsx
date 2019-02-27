@@ -28,6 +28,12 @@ export const SideNav: FC<Props> = props => {
 				</StyledListItem>
 
 				<StyledListItem>
+					<StyledLink className="link" to="/portal/projects">
+						Projects
+					</StyledLink>
+				</StyledListItem>
+
+				<StyledListItem>
 					<StyledLogoutButton onClick={handleLogout}>Logout</StyledLogoutButton>
 				</StyledListItem>
 			</ul>
@@ -43,7 +49,8 @@ const StyledNavBar = styled.div`
 	color: #f4ad24;
 	position: fixed;
 	top: 0px;
-
+	display: flex;
+	flex-direction: column;
 	ul {
 		margin: 0px;
 		padding: 0px;
@@ -58,7 +65,6 @@ const StyledLink = styled(Link)`
 	text-decoration: none;
 	color: white;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100%;

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { TechnologyList } from "./TechnologyList";
-import { CreateTechnology } from "./CreateTechnology";
+import { ProjectList } from "./ProjectList";
+import { CreateProject } from "./CreateProject";
 import { Query, Mutation } from "react-apollo";
 import { GET_TECHNOLOGIES } from "../../../graphql/queries";
 import {
@@ -67,11 +67,11 @@ export const TechnologyPage: FC<Props> = props => {
 
 								return (
 									<div>
-										<TechnologyList
+										{/* <ProjectList
 											technologies={technologies}
 											handleDelete={deleteTechnology}
-										/>
-										<CreateTechnology handleCreate={createTechnology} />
+										/> */}
+										<CreateProject handleCreate={createTechnology} />
 									</div>
 								);
 							}}
