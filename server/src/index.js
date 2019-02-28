@@ -10,15 +10,15 @@ const port = process.env.PORT || 8000;
 
 // GraphQL Yoga server options
 const options = {
-	port,
-	endpoint: "/api/graphql",
-	playground: "/api/playground",
-	subscriptions: "/api/subscriptions",
+  port,
+  endpoint: "/api/graphql",
+  playground: "/api/playground",
+  subscriptions: "/api/subscriptions"
 };
 
 // File path to client dist folder
 const publicPath = express.static(
-	path.join(__dirname, "..", "..", "client", "dist")
+  path.join(__dirname, "..", "..", "client", "dist")
 );
 
 // File path to index.html in client dist folder
@@ -36,12 +36,12 @@ server.express.use(cors());
 server.express.use(cookieParser());
 
 server.express.get("/api/authenticate", async (req, res, next) => {
-	try {
-		const isAuthenticated = await authenticateUser(req);
-		res.send(isAuthenticated);
-	} catch (error) {
-		res.status(401).send("Token was incorrect");
-	}
+  try {
+    const isAuthenticated = await authenticateUser(req);
+    res.send(isAuthenticated);
+  } catch (error) {
+    res.status(401).send("Token was incorrect");
+  }
 });
 
 // server.express.get("/dashboard", async (req, res, next) => {
@@ -55,11 +55,11 @@ server.express.get("/api/authenticate", async (req, res, next) => {
 // });
 
 server.express.all("/*", (req, res, next) => {
-	if (req.path === "/api/playground" || req.path === "/api/graphql") {
-		return next();
-	}
+  if (req.path === "/api/playground" || req.path === "/api/graphql") {
+    return next();
+  }
 
-	res.sendFile(indexPath);
+  res.sendFile(indexPath);
 });
 
 server.start(options);
