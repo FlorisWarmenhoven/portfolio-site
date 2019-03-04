@@ -6,7 +6,7 @@ import { authenticateUser } from "./utils/authenticateUser.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 // Variable port for Heroku or local development
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8010;
 
 // GraphQL Yoga server options
 const options = {
@@ -62,4 +62,6 @@ server.express.all("/*", (req, res, next) => {
   res.sendFile(indexPath);
 });
 
-server.start(options);
+server.start(options, () => {
+  console.log(`Server live and listening on port ${port}`);
+});
