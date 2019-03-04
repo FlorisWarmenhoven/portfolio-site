@@ -11,7 +11,7 @@ import { DataProxy } from "apollo-cache";
 
 interface Props {}
 
-export const TechnologyPage: FC<Props> = props => {
+export const ProjectPage: FC<Props> = props => {
 	function updateCacheOnDelete(
 		cache: DataProxy,
 		deletedTechnology: Technology,
