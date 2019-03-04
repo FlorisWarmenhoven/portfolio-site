@@ -13,10 +13,10 @@
 	},
 	"babel": {
 		"presets": [
-			"env"
+			"@babel/preset-env"
 		],
 		"plugins": [
-			"transform-object-rest-spread"
+			"@babel/plugin-proposal-object-rest-spread"
 		]
 	},
 	"repository": {
@@ -30,9 +30,10 @@
 	},
 	"homepage": "https://github.com/FlorisWarmenhoven/portfolio-site#readme",
 	"dependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-plugin-transform-object-rest-spread": "^6.26.0",
-		"babel-preset-env": "^1.7.0",
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.3.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+		"@babel/preset-env": "^7.3.4",
 		"env-cmd": "^8.0.2"
 	},
 	"devDependencies": {
