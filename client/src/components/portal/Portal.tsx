@@ -12,16 +12,16 @@ import { ProjectPage } from "./project/ProjectPage";
 interface Props extends RouteComponentProps {}
 
 export const Portal: FC<Props> = props => {
-	function isUserAuthenticated() {
-		return authenticateUser();
-	}
-
-	useEffect(() => {
-		const isAuthenticated = isUserAuthenticated();
+	async function isUserAuthenticated() {
+		const isAuthenticated = await authenticateUser();
 		if (!isAuthenticated) {
 			localStorage.removeItem("token");
 			props.history.push("/login");
 		}
+	}
+
+	useEffect(() => {
+		isUserAuthenticated();
 	}, []);
 
 	// Redirects traffic to /portal to /portal/dashboard

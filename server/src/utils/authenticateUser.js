@@ -1,14 +1,14 @@
 import jwt from "jsonwebtoken";
 
 export const authenticateUser = request => {
-  const header = request.request.headers.authorization;
+	const header = request.test.headers.authorization;
 
-  if (!header) {
-    throw new Error("Authentication required.");
-  }
+	if (!header) {
+		throw new Error("Authentication required.");
+	}
 
-  const token = header.replace("Bearer ", "");
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+	const token = header.replace("Bearer ", "");
+	const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-  return decoded.userId;
+	return decoded.userId;
 };
