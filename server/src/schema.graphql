@@ -1,81 +1,81 @@
 # OBJECT TYPES
 type User {
-  id: ID!
-  name: String!
-  password: String!
-  email: String!
-  projects: [Project!]!
+	id: ID!
+	name: String!
+	password: String!
+	email: String!
+	projects: [Project!]
 }
 
 type Project {
-  id: ID!
-  title: String!
-  description: String!
-  githubUrl: String!
-  imageUrl: String!
-  technologies: [Technology!]!
+	id: ID!
+	title: String!
+	description: String!
+	githubUrl: String!
+	imageUrl: String!
+	technologies: [Technology!]
 }
 
 type Technology {
-  id: ID!
-  name: String!
-  iconUrl: String!
+	id: ID!
+	name: String!
+	iconUrl: String!
 }
 
 # QUERIES
 type Query {
-  users: [User!]!
-  projects: [Project!]!
-  technologies: [Technology!]!
+	users: [User!]!
+	projects: [Project!]!
+	technologies: [Technology!]!
 }
 
 # MUTATIONS
 type Mutation {
-  login(data: LoginUserInput): AuthPayload!
-  createUser(data: CreateUserInput!): AuthPayload!
-  deleteUser(id: ID!): User!
-  createProject(data: CreateProjectInput!): Project!
-  createTechnology(data: CreateTechnologyInput!): Technology!
-  deleteTechnology(id: ID!): Technology!
+	login(data: LoginUserInput): AuthPayload!
+	createUser(data: CreateUserInput!): AuthPayload!
+	deleteUser(id: ID!): User!
+	createProject(data: CreateProjectInput!): Project!
+	createTechnology(data: CreateTechnologyInput!): Technology!
+	deleteTechnology(id: ID!): Technology!
 }
 
 # INPUT TYPES
 input CreateProjectInput {
-  title: String!
-  description: String!
-  githubUrl: String!
-  imageUrl: String!
-  technologies: [TechnologyInput!]!
+	title: String!
+	description: String!
+	githubUrl: String!
+	imageUrl: String!
+	technologies: [TechnologyInput!]!
 }
 
 input CreateUserInput {
-  name: String!
-  email: String!
-  password: String!
+	name: String!
+	email: String!
+	password: String!
 }
 
 input UpdateUserInput {
-  name: String
-  email: String
-  age: Int
+	name: String
+	email: String
+	age: Int
 }
 
 input LoginUserInput {
-  email: String!
-  password: String!
+	email: String!
+	password: String!
 }
 
 input TechnologyInput {
-  id: ID!
+	id: ID!
 }
 
 input CreateTechnologyInput {
-  name: String!
-  iconUrl: String!
+	name: String!
+	iconUrl: String!
 }
 
 # OUTPUT TYPES
 type AuthPayload {
-  user: User!
-  token: String!
+	user: User!
+	token: String!
 }

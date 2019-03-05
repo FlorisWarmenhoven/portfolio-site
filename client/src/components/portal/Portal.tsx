@@ -18,7 +18,6 @@ export const Portal: FC<Props> = props => {
 
 	useEffect(() => {
 		const isAuthenticated = isUserAuthenticated();
-
 		if (!isAuthenticated) {
 			localStorage.removeItem("token");
 			props.history.push("/login");
