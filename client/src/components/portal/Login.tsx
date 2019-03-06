@@ -1,27 +1,34 @@
 import React, { useState, FC } from "react";
-import { Mutation } from "react-apollo";
 import { Redirect, RouteComponentProps } from "react-router";
-import { LOGIN_USER } from "../../graphql/mutations";
+import { LOGIN_USER, LoginUserResponse } from "../../graphql/mutations";
 import styled from "../../../types/styled-components";
+import { useMutation } from "react-apollo-hooks";
 
 interface Props extends RouteComponentProps {}
 
 export const Login: FC<Props> = props => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 
-	async function handleLogin(e: any, login: any) {
-		e.preventDefault();
+	const loginMutation = useMutation<LoginUserResponse>(LOGIN_USER, {
+		variables: {
+			email,
+			password,
+		},
+	});
 
-		const response = await login({
-			variables: {
-				email,
-				password,
-			},
-		});
+	async function handleLogin(e: any) {
+		try {
+			e.preventDefault();
 
-		await localStorage.setItem("token", response.data.login.token);
-		props.history.push("/portal/dashboard");
+			const response = await loginMutation();
+
+			await localStorage.setItem("token", response.data.login.token);
+			props.history.push("/portal/dashboard");
+		} catch (e) {
+			setErrorMessage(e.message);
+		}
 	}
 
 	if (localStorage.getItem("token")) {
@@ -29,27 +36,24 @@ export const Login: FC<Props> = props => {
 	}
 
 	return (
-		<Mutation mutation={LOGIN_USER}>
-			{login => (
-				<StyledLogin>
-					<StyledForm onSubmit={e => handleLogin(e, login)}>
-						<StyledInput
-							type="text"
-							placeholder="Email"
-							value={email}
-							onChange={e => setEmail(e.target.value)}
-						/>
-						<StyledInput
-							type="password"
-							placeholder="Password"
-							value={password}
-							onChange={e => setPassword(e.target.value)}
-						/>
-						<StyledButton type="submit">submit</StyledButton>
-					</StyledForm>
-				</StyledLogin>
-			)}
-		</Mutation>
+		<StyledLogin>
+			{errorMessage}
+			<StyledForm onSubmit={e => handleLogin(e)}>
+				<StyledInput
+					type="text"
+					placeholder="Email"
+					value={email}
+					onChange={e => setEmail(e.target.value)}
+				/>
+				<StyledInput
+					type="password"
+					placeholder="Password"
+					value={password}
+					onChange={e => setPassword(e.target.value)}
+				/>
+				<StyledButton type="submit">Login</StyledButton>
+			</StyledForm>
+		</StyledLogin>
 	);
 };
 

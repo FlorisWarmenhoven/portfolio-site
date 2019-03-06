@@ -12,6 +12,16 @@ export const LOGIN_USER = gql`
 	}
 `;
 
+export type LoginUserResponse = {
+	login: {
+		user: {
+			id: string;
+			name: string;
+		};
+		token: string;
+	};
+};
+
 export const CREATE_TECHNOLOGY = gql`
 	mutation createTechnology($name: String!, $iconUrl: String!) {
 		createTechnology(data: { name: $name, iconUrl: $iconUrl }) {

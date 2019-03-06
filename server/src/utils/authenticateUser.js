@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const authenticateUser = request => {
-	const header = request.test.headers.authorization;
+	const header = request.headers.authorization;
 
 	if (!header) {
 		throw new Error("Authentication required.");
