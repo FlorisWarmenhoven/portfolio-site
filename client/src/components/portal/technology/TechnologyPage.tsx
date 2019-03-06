@@ -5,19 +5,13 @@ import { GET_TECHNOLOGIES } from "../../../graphql/queries";
 import {
 	DELETE_TECHNOLOGY,
 	CREATE_TECHNOLOGY,
+	createTechnologyResponse,
+	deleteTechnologyResponse,
 } from "../../../graphql/mutations";
 import { DataProxy } from "apollo-cache";
 import { useMutation, useQuery } from "react-apollo-hooks";
 
 interface Props {}
-
-type createTechnologyResponse = {
-	createTechnology: Technology;
-};
-
-type deleteTechnologyResponse = {
-	deleteTechnology: Technology;
-};
 
 export const TechnologyPage: FC<Props> = () => {
 	function updateCacheOnDelete(

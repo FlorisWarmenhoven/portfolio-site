@@ -32,6 +32,10 @@ export const CREATE_TECHNOLOGY = gql`
 	}
 `;
 
+export type createTechnologyResponse = {
+	createTechnology: Technology;
+};
+
 export const DELETE_TECHNOLOGY = gql`
 	mutation deleteTechnology($id: ID!) {
 		deleteTechnology(id: $id) {
@@ -41,3 +45,7 @@ export const DELETE_TECHNOLOGY = gql`
 		}
 	}
 `;
+
+export type deleteTechnologyResponse = {
+	deleteTechnology: Technology;
+};
