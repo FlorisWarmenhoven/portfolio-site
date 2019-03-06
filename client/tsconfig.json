@@ -8,7 +8,10 @@
 		"jsx": "react",
 		"allowSyntheticDefaultImports": true,
 		"moduleResolution": "node",
+		"skipLibCheck": true,
 		// Overwrite default lib to add esnext, solves async errors
 		"lib": ["es6", "dom", "esnext"]
-	}
+	},
+	"include": ["src/**/*", "types/**/*"],
+	"exclude": ["node_modules"]
 }

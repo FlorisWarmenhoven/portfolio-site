@@ -4,8 +4,8 @@
 	"description": "Portfolio site",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --open --env dev",
-		"dev": "webpack-dev-server --open --env dev",
+		"start": "webpack-dev-server --env dev",
+		"dev": "webpack-dev-server --env dev",
 		"build": "webpack --env prod",
 		"test": "jest"
 	},
