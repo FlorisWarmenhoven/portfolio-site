@@ -1,4 +1,5 @@
 import * as React from "react";
+import "jest";
 import { Navbar } from "../src/components/portfolio/Navbar";
 
 test("unit testing", () => {
