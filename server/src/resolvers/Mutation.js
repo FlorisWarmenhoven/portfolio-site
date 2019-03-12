@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { authenticateUser } from "../utils/authenticateUser";
 import { generateToken } from "../utils/generateToken";
 
-const Mutation = {
+export const Mutation = {
 	async createUser(parent, args, { prisma }, info) {
 		const { password, email } = args.data;
 		const lowercaseEmail = args.data.email.toLowerCase();
@@ -80,5 +80,3 @@ const Mutation = {
 		return prisma.mutation.deleteTechnology({ where: { id: args.id } });
 	}
 };
-
-export { Mutation as default };

@@ -1,4 +1,4 @@
-const Query = {
+export const Query = {
 	async users(parent, args, { prisma }, info) {
 		const response = await prisma.query.users(null, info);
 
@@ -13,7 +13,5 @@ const Query = {
 		const response = await prisma.query.technologies(null, info);
 
 		return response;
-	},
+	}
 };
-
-export { Query as default };
