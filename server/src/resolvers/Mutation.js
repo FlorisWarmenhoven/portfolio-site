@@ -3,7 +3,7 @@ import { authenticateUser } from "../utils/authenticateUser";
 import { generateToken } from "../utils/generateToken";
 
 export const Mutation = {
-	async createUser(parent, args, { prisma }, info) {
+	async createUser(_, args, { prisma }, info) {
 		const { password, email } = args.data;
 		const lowercaseEmail = args.data.email.toLowerCase();
 
@@ -30,20 +30,23 @@ export const Mutation = {
 			token: generateToken(user.id)
 		};
 	},
-	deleteUser(parent, args, { prisma }, info) {
+	deleteUser(_, args, { prisma }, info) {
 		return prisma.mutation.deleteUser({ where: { id: args.id } });
 	},
-	async createProject(parent, args, { prisma, request }, info) {
+	async createProject(_, args, { prisma, request }, info) {
 		authenticateUser(request);
 
-		await prisma.mutation.createProject({
-			data: {
-				...args.data,
-				technologies: {
-					connect: [...args.data.technologies]
+		return prisma.mutation.createProject(
+			{
+				data: {
+					...args.data,
+					technologies: {
+						connect: [...args.data.technologies]
+					}
 				}
-			}
-		});
+			},
+			info
+		);
 	},
 	async login(parent, args, { prisma }, info) {
 		const user = await prisma.query.user({

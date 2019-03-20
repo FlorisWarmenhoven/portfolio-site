@@ -45,7 +45,11 @@ input CreateProjectInput {
 	description: String!
 	githubUrl: String!
 	imageUrl: String!
-	technologies: [TechnologyInput!]!
+	technologies: [TechnologyIdInput!]!
+}
+
+input TechnologyIdInput {
+	id: ID!
 }
 
 input CreateUserInput {
@@ -63,10 +67,6 @@ input UpdateUserInput {
 input LoginUserInput {
 	email: String!
 	password: String!
-}
-
-input TechnologyInput {
-	id: ID!
 }
 
 input CreateTechnologyInput {
