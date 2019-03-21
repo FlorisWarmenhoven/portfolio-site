@@ -9,3 +9,24 @@ export const GET_TECHNOLOGIES = gql`
 		}
 	}
 `;
+
+export const GET_PROJECTS = gql`
+	query getProjects {
+		projects {
+			id
+			title
+			description
+			githubUrl
+			imageUrl
+			technologies {
+				id
+				name
+				iconUrl
+			}
+		}
+	}
+`;
+
+export type GetProjectsResponse = {
+	projects: Project[];
+};

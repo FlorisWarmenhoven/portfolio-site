@@ -98,7 +98,7 @@ const StyledLogoutButton = styled.button`
 	width: 100%;
 	border: none;
 	height: 100%;
-
+	font-size: 15px;
 	&:hover {
 		cursor: pointer;
 	}

@@ -1,11 +1,18 @@
 import React, { FC } from "react";
+import { ProjectItem } from "./ProjectItem";
 
-interface Props {}
+interface Props {
+	projects: Project[];
+}
 
 export const ProjectList: FC<Props> = props => {
-	return (
-		<>
-			<div>Hello from ProjectList!</div>
-		</>
-	);
+	if (props.projects.length > 0) {
+		return (
+			<>
+				{props.projects.map(project => (
+					<ProjectItem key={project.id} project={project} />
+				))}
+			</>
+		);
+	}
 };
