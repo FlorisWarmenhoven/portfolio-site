@@ -3,7 +3,12 @@ import { authenticateUser } from "../utils/authenticateUser";
 import { generateToken } from "../utils/generateToken";
 
 export const Mutation = {
-	async createUser(_, args, { prisma }, info) {
+	/* 
+	-------------------------------------
+	--- USER ----------------------------
+	-------------------------------------
+	*/
+	async createUser(parent, args, { prisma }, info) {
 		const { password, email } = args.data;
 		const lowercaseEmail = args.data.email.toLowerCase();
 
@@ -30,24 +35,11 @@ export const Mutation = {
 			token: generateToken(user.id)
 		};
 	},
-	deleteUser(_, args, { prisma }, info) {
+
+	deleteUser(parent, args, { prisma }, info) {
 		return prisma.mutation.deleteUser({ where: { id: args.id } });
 	},
-	async createProject(_, args, { prisma, request }, info) {
-		authenticateUser(request);
 
-		return prisma.mutation.createProject(
-			{
-				data: {
-					...args.data,
-					technologies: {
-						connect: [...args.data.technologies]
-					}
-				}
-			},
-			info
-		);
-	},
 	async login(parent, args, { prisma }, info) {
 		const user = await prisma.query.user({
 			where: {
@@ -73,12 +65,56 @@ export const Mutation = {
 			token: generateToken(user.id)
 		};
 	},
-	async createTechnology(parent, args, { prisma, request }, info) {
-		// authenticateUser(request);
 
-		return await prisma.mutation.createTechnology(args);
+	/* 
+	-------------------------------------
+	--- PROJECT -------------------------
+	-------------------------------------
+	*/
+	createProject(parent, args, { prisma, request }, info) {
+		authenticateUser(request);
+
+		return prisma.mutation.createProject(
+			{
+				data: {
+					...args.data,
+					technologies: {
+						connect: [...args.data.technologies]
+					}
+				}
+			},
+			info
+		);
 	},
 
+	updateProject(parent, args, { prisma, request }, info) {
+		authenticateUser(request);
+
+		return prisma.mutation.updateProject(
+			{
+				data: {
+					...args.data,
+					technologies: {
+						connect: [...args.data.technologies]
+					}
+				},
+				where: {
+					id: args.where.id
+				}
+			},
+			info
+		);
+	},
+	/* 
+	-------------------------------------
+	--- TECHNOLOGY ----------------------
+	-------------------------------------
+	*/
+	createTechnology(parent, args, { prisma, request }, info) {
+		authenticateUser(request);
+
+		return prisma.mutation.createTechnology(args);
+	},
 	deleteTechnology(parent, args, { prisma }, info) {
 		return prisma.mutation.deleteTechnology({ where: { id: args.id } });
 	}

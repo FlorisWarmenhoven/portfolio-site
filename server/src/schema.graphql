@@ -35,6 +35,7 @@ type Mutation {
 	createUser(data: CreateUserInput!): AuthPayload!
 	deleteUser(id: ID!): User!
 	createProject(data: CreateProjectInput!): Project!
+	updateProject(data: UpdateProjectInput!, where: IdInput!): Project!
 	createTechnology(data: CreateTechnologyInput!): Technology!
 	deleteTechnology(id: ID!): Technology!
 }
@@ -45,10 +46,18 @@ input CreateProjectInput {
 	description: String!
 	githubUrl: String!
 	imageUrl: String!
-	technologies: [TechnologyIdInput!]!
+	technologies: [IdInput!]!
 }
 
-input TechnologyIdInput {
+input UpdateProjectInput {
+	title: String
+	description: String
+	githubUrl: String
+	imageUrl: String
+	technologies: [IdInput!]
+}
+
+input IdInput {
 	id: ID!
 }
 
