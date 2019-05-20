@@ -8,8 +8,8 @@
 	},
 	"scripts": {
 		"start": "env-cmd server/config/prod.env babel-node server/src/index.js --presets @babel/preset-env",
-		"dev": "concurrently \"cd client && npm start\" \"cd server && npm start\"",
-		"heroku-postbuild": "cd client && npm install && npm install -only=dev && npm run build && cd ../server && npm install && npm run get-schema"
+		"dev": "concurrently \"cd client && yarn start\" \"cd server && yarn start\"",
+		"heroku-postbuild": "cd client && yarn install --prod=false && yarn build && cd ../server && yarn && yarn get-schema"
 	},
 	"repository": {
 		"type": "git",
