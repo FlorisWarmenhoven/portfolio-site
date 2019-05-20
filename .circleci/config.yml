@@ -8,13 +8,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
+            - node-v1-{{ .Branch }}-{{ checksum "./client/yarn.lock" }}
             - node-v1-{{ .Branch }}-
             - node-v1-
 
       - run:
           name: Install Client dependencies
-          command: cd client && npm install
+          command: cd client && yarn
 
       - run:
           name: Setup Code Climate test-reporter
@@ -23,7 +23,7 @@ jobs:
             chmod +x ./client/cc-test-reporter
 
       - save_cache:
-          key: node-v1-{{ .Branch }}-{{ checksum "./client/package-lock.json" }}
+          key: node-v1-{{ .Branch }}-{{ checksum "./client/yarn.lock" }}
           paths:
             - ./client/node_modules
 
@@ -31,13 +31,13 @@ jobs:
           name: Run tests and coverage report for front-end
           command: |
             ./client/cc-test-reporter before-build
-            cd client && npm test -- --coverage
+            cd client && yarn test -- --coverage
             ./cc-test-reporter after-build -t lcov --exit-code $?
 
       - run:
           name: Run tests for back-end
           command: |
-            cd server && npm install && npm run get-schema && npm run test-ci
+            cd server && yarn && yarn get-schema && yarn test-ci
 
   deploy:
     docker:
