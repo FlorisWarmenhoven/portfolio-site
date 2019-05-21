@@ -5,9 +5,7 @@ import { PrivateRoute } from "./components/shared/PrivateRoute";
 import { Portal } from "./components/portal/Portal";
 import { Login } from "./components/portal/Login";
 
-interface Props {}
-
-export const Routes: FC<Props> = props => {
+export const Routes: FC = () => {
 	return (
 		<>
 			<Switch>

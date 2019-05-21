@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import styled from "../../../types/styled-components";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const aboutImage = require("../../assets/temporary-image.jpg");
 
-interface Props {}
-
-export const About: FC<Props> = props => {
+export const About: FC = () => {
 	return (
 		<StyledAbout>
 			<StyledAboutContent>

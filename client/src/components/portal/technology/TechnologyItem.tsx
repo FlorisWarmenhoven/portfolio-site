@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 
-interface Props {
-	technology: Technology;
-	handleDelete: any;
+interface IProps {
+	technology: ITechnology;
+	handleDelete: Function;
 }
 
-export const TechnologyItem: FC<Props> = props => {
+export const TechnologyItem: FC<IProps> = props => {
 	const { id, name, iconUrl } = props.technology;
 
 	return (

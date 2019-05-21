@@ -1,6 +1,5 @@
 {
-  "editor.insertSpaces": false,
+	"editor.insertSpaces": false,
 	"editor.tabSize": 2,
-	"prettier.useTabs": true,
-	"prettier.tslintIntegration": true
+	"prettier.useTabs": true
 }

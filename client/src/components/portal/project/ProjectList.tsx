@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { ProjectItem } from "./ProjectItem";
 
-interface Props {
-	projects: Project[];
+interface IProps {
+	projects: IProject[];
 }
 
-export const ProjectList: FC<Props> = props => {
+export const ProjectList: FC<IProps> = props => {
 	if (props.projects.length > 0) {
 		return (
 			<>

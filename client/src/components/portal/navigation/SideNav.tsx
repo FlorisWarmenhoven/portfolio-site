@@ -3,9 +3,7 @@ import styled from "../../../../types/styled-components";
 import { Link } from "react-router-dom";
 import { RouteComponentProps } from "react-router";
 
-interface Props extends RouteComponentProps {}
-
-export const SideNav: FC<Props> = props => {
+export const SideNav: FC<RouteComponentProps> = props => {
 	function handleLogout() {
 		localStorage.removeItem("token");
 		props.history.push("/login");

@@ -12,7 +12,7 @@ export const LOGIN_USER = gql`
 	}
 `;
 
-export type LoginUserResponse = {
+export interface ILoginUserResponse {
 	login: {
 		user: {
 			id: string;
@@ -20,7 +20,7 @@ export type LoginUserResponse = {
 		};
 		token: string;
 	};
-};
+}
 
 export const CREATE_TECHNOLOGY = gql`
 	mutation createTechnology($name: String!, $iconUrl: String!) {
@@ -32,9 +32,9 @@ export const CREATE_TECHNOLOGY = gql`
 	}
 `;
 
-export type createTechnologyResponse = {
-	createTechnology: Technology;
-};
+export interface ICreateTechnologyResponse {
+	createTechnology: ITechnology;
+}
 
 export const DELETE_TECHNOLOGY = gql`
 	mutation deleteTechnology($id: ID!) {
@@ -46,6 +46,6 @@ export const DELETE_TECHNOLOGY = gql`
 	}
 `;
 
-export type deleteTechnologyResponse = {
-	deleteTechnology: Technology;
-};
+export interface IDeleteTechnologyResponse {
+	deleteTechnology: ITechnology;
+}

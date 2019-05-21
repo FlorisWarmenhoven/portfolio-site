@@ -7,9 +7,7 @@ import { apolloClient } from "../apolloClient";
 // import { ApolloProvider } from "react-apollo";
 import { ApolloProvider as ApolloHooksProvider } from "react-apollo-hooks";
 
-interface Props {}
-
-export const App: FC<Props> = () => {
+export const App: FC = () => {
 	return (
 		<ApolloHooksProvider client={apolloClient}>
 			<BrowserRouter>

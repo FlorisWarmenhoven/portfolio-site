@@ -1,11 +1,10 @@
 import React, { FC } from "react";
 import { useQuery } from "react-apollo-hooks";
-import { GetProjectsResponse, GET_PROJECTS } from "../../../graphql/queries";
+import { IGetProjectsResponse, GET_PROJECTS } from "../../../graphql/queries";
 import { ProjectList } from "./ProjectList";
-interface Props {}
 
-export const ProjectPage: FC<Props> = props => {
-	const { loading, data, error } = useQuery<GetProjectsResponse>(GET_PROJECTS);
+export const ProjectPage: FC = () => {
+	const { loading, data, error } = useQuery<IGetProjectsResponse>(GET_PROJECTS);
 	if (loading) {
 		return <div>Loading..</div>;
 	}

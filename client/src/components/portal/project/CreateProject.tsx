@@ -10,7 +10,7 @@ export const CreateProject: FC<Props> = props => {
 	const [imageUrl, setImageUrl] = useState("");
 	const [technologies, setTechnologies] = useState("");
 
-	function handleFormSubmit(e: any) {
+	function handleFormSubmit(e: any): any {
 		e.preventDefault();
 		// CreateProject();
 	}

@@ -27,6 +27,6 @@ export const GET_PROJECTS = gql`
 	}
 `;
 
-export type GetProjectsResponse = {
-	projects: Project[];
-};
+export interface IGetProjectsResponse {
+	projects: IProject[];
+}

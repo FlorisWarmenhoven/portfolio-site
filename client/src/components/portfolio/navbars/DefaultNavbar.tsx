@@ -7,11 +7,10 @@ import {
 	FaLightbulb,
 	FaChartBar,
 	FaPhone,
-	FaFileAlt,
+	FaFileAlt
 } from "react-icons/fa";
 
-interface Props {}
-export const DefaultNavbar: FC<Props> = props => {
+export const DefaultNavbar: FC = () => {
 	return (
 		<div>
 			<StyledNavBar>

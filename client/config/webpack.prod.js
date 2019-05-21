@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
@@ -9,12 +10,12 @@ module.exports = {
 	output: {
 		filename: "bundle.js",
 		// the output bundle
-		path: path.resolve(__dirname, "../dist"),
+		path: path.resolve(__dirname, "../dist")
 	},
 
 	resolve: {
 		// Add resolvable extensions.
-		extensions: [".mjs", ".ts", ".tsx", ".js", ".json"],
+		extensions: [".mjs", ".ts", ".tsx", ".js", ".json"]
 	},
 
 	module: {
@@ -27,31 +28,31 @@ module.exports = {
 				enforce: "pre",
 				test: /\.js$/,
 				loader: "source-map-loader",
-				exclude: [/node_modules/, /dist/],
+				exclude: [/node_modules/, /dist/]
 			},
 
 			// Load in CSS
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: ["style-loader", "css-loader"]
 			},
 			{
 				test: /\.(png|jpg|gif)$/i,
 				use: [
 					{
 						loader: "file-loader",
-						options: {},
-					},
-				],
-			},
-		],
+						options: {}
+					}
+				]
+			}
+		]
 	},
 	plugins: [
 		// inject <script> in html file.
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "../src/index.html"),
+			template: path.resolve(__dirname, "../src/index.html")
 		}),
 		// Allows React to use process.env variables set in Heroku
-		new webpack.EnvironmentPlugin(["GRAPHQL_API_ENDPOINT"]),
-	],
+		new webpack.EnvironmentPlugin(["GRAPHQL_API_ENDPOINT"])
+	]
 };

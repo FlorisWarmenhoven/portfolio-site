@@ -1,10 +1,8 @@
-import React, { Component, FC } from "react";
+import React, { FC } from "react";
 import styled from "../../../../types/styled-components";
 import { FaBars } from "react-icons/fa";
 
-interface Props {}
-
-export const MobileNavbar: FC<Props> = props => {
+export const MobileNavbar: FC = () => {
 	function toggleLinks() {
 		const linksElement = document.getElementById("myLinks");
 		if (linksElement.style.display === "block") {

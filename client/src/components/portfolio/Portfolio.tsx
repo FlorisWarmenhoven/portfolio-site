@@ -4,9 +4,7 @@ import { Landing } from "./Landing";
 import styled from "../../../types/styled-components";
 import { About } from "./About";
 
-interface Props {}
-
-export const Portfolio: FC<Props> = props => {
+export const Portfolio: FC = () => {
 	return (
 		<StyledApp>
 			<Navbar />

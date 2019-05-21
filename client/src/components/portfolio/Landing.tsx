@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import styled from "../../../types/styled-components";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const landingImage = require("../../assets/landing-image.jpg");
 
-interface Props {}
-
-export const Landing: FC<Props> = props => {
+export const Landing: FC = () => {
 	return (
 		<StyledLanding>
 			<h1>

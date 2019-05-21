@@ -1,14 +1,14 @@
 import React, { FC, useState } from "react";
 
-interface Props {
+interface IProps {
 	handleCreate: Function;
 }
 
-export const CreateTechnology: FC<Props> = props => {
+export const CreateTechnology: FC<IProps> = props => {
 	const [name, setName] = useState("");
 	const [iconUrl, setIconUrl] = useState("");
 
-	function handleFormSubmit(e: any) {
+	function handleFormSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		props.handleCreate({ variables: { name, iconUrl } });
 		setName("");

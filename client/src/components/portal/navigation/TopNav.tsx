@@ -2,9 +2,7 @@ import React, { FC } from "react";
 import styled from "../../../../types/styled-components";
 import { FaSignOutAlt } from "react-icons/fa";
 
-interface Props {}
-
-export const TopNav: FC<Props> = props => {
+export const TopNav: FC = () => {
 	return (
 		<StyledTopNav>
 			<StyledLogoutButton>

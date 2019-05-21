@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import styled from "../../../../types/styled-components";
 import { Link } from "react-router-dom";
 
-interface Props {
-	project: Project;
+interface IProps {
+	project: IProject;
 }
 
-export const ProjectItem: FC<Props> = props => {
+export const ProjectItem: FC<IProps> = props => {
 	const { project } = props;
 	if (project) {
 		return (

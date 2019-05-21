@@ -1,15 +1,15 @@
 import React, { FC } from "react";
 import { TechnologyItem } from "./TechnologyItem";
 
-interface Props {
-	technologies: Technology[];
+interface IProps {
+	technologies: ITechnology[];
 	handleDelete: Function;
 }
 
-export const TechnologyList: FC<Props> = props => {
+export const TechnologyList: FC<IProps> = props => {
 	return (
 		<div>
-			{props.technologies.map((technology: any) => (
+			{props.technologies.map((technology: ITechnology) => (
 				<div key={technology.id}>
 					<TechnologyItem
 						technology={technology}
