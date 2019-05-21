@@ -12,10 +12,10 @@ export const Landing: FC = () => {
 				<h3>Floris Warmenhoven</h3>
 				<hr />
 				<p>
-					Hi there! I'm Floris. This site is used showcase my portfolio as well
-					as providing information about myself and my skills, my cv and a way
-					for you to contact me. Browse around! If you have questions, you can
-					contact me through contact form at the end of the page.
+					Hi there! I'm Floris. This site is used to showcase my portfolio as
+					well as providing information about myself and my skills, my cv and a
+					way for you to contact me. Browse around! If you have questions, you
+					can contact me through contact form at the end of the page.
 				</p>
 				<p />
 			</Introduction>
