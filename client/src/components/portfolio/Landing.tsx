@@ -15,7 +15,7 @@ export const Landing: FC = () => {
 					Hi there! I'm Floris. This site is used to showcase my portfolio as
 					well as providing information about myself and my skills, my cv and a
 					way for you to contact me. Browse around! If you have questions, you
-					can contact me through contact form at the end of the page.
+					can contact me through the contact form at the end of the page.
 				</p>
 				<p />
 			</Introduction>
