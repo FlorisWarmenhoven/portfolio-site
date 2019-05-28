@@ -1,5 +1,5 @@
 type User {
-	id: ID! @unique
+	id: ID! @id
 	name: String!
 	password: String!
 	email: String! @unique
@@ -7,7 +7,7 @@ type User {
 }
 
 type Project {
-	id: ID! @unique
+	id: ID! @id
 	title: String!
 	description: String!
 	imageUrl: String!
@@ -16,7 +16,7 @@ type Project {
 }
 
 type Technology {
-	id: ID! @unique
+	id: ID! @id
 	name: String!
 	iconUrl: String!
 }
