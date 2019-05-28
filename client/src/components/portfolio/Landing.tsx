@@ -3,6 +3,7 @@
 import React, { FC, useEffect } from 'react';
 import styled from '../../../types/styled-components';
 const profilePicture = require('../../assets/profile-picture.jpg');
+const noise = require('../../assets/noise.png');
 
 export const Landing: FC = () => {
 	useEffect(() => {
@@ -12,7 +13,7 @@ export const Landing: FC = () => {
 			skyColor: 0x25a0dc,
 			cloudColor: 0x456093,
 			speed: 0.5,
-			texturePath: '../../assets/noise.png'
+			texturePath: noise
 		});
 	});
 
