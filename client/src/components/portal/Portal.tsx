@@ -1,20 +1,20 @@
-import React, { useEffect, FC } from "react";
-import { authenticateUser } from "../../lib/authenticateUser";
-import { RouteComponentProps, Switch } from "react-router-dom";
-import styled from "../../../types/styled-components";
-import { PrivateRoute } from "../shared/PrivateRoute";
-import { TechnologyPage } from "./technology/TechnologyPage";
-import { Dashboard } from "./Dashboard";
-import { SideNav } from "./navigation/SideNav";
-import { TopNav } from "./navigation/TopNav";
-import { ProjectPage } from "./project/ProjectPage";
+import React, { useEffect, FC } from 'react';
+import { authenticateUser } from '../../lib/authenticateUser';
+import { RouteComponentProps, Switch } from 'react-router-dom';
+import styled from '../../../types/styled-components';
+import { PrivateRoute } from '../shared/PrivateRoute';
+import { TechnologyPage } from './technology/TechnologyPage';
+import { Dashboard } from './Dashboard';
+import { SideNav } from './navigation/SideNav';
+import { TopNav } from './navigation/TopNav';
+import { ProjectPage } from './project/ProjectPage';
 
 export const Portal: FC<RouteComponentProps> = props => {
 	async function isUserAuthenticated() {
 		const isAuthenticated = await authenticateUser();
 		if (!isAuthenticated) {
-			localStorage.removeItem("token");
-			props.history.push("/login");
+			localStorage.removeItem('token');
+			props.history.push('/login');
 		}
 	}
 
@@ -24,8 +24,8 @@ export const Portal: FC<RouteComponentProps> = props => {
 
 	// Redirects traffic to /portal to /portal/dashboard
 	useEffect(() => {
-		if (props.location.pathname === "/portal") {
-			props.history.push("/portal/dashboard");
+		if (props.location.pathname === '/portal') {
+			props.history.push('/portal/dashboard');
 		}
 	});
 

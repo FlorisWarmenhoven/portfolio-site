@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { useQuery } from "react-apollo-hooks";
-import { IGetProjectsResponse, GET_PROJECTS } from "../../../graphql/queries";
-import { ProjectList } from "./ProjectList";
+import React, { FC } from 'react';
+import { useQuery } from 'react-apollo-hooks';
+import { IGetProjectsResponse, GET_PROJECTS } from '../../../graphql/queries';
+import { ProjectList } from './ProjectList';
 
 export const ProjectPage: FC = () => {
 	const { loading, data, error } = useQuery<IGetProjectsResponse>(GET_PROJECTS);
@@ -11,6 +11,10 @@ export const ProjectPage: FC = () => {
 
 	if (error) {
 		return <div>Error: ${error.message}</div>;
+	}
+
+	if (data.projects.length === 0) {
+		return <div>No projects found.</div>;
 	}
 
 	if (data) {

@@ -1,16 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 
-interface Props {
+interface IProps {
 	handleCreate: Function;
 }
 
-export const CreateProject: FC<Props> = props => {
-	const [title, setTitle] = useState("");
-	const [description, setDescription] = useState("");
-	const [imageUrl, setImageUrl] = useState("");
-	const [technologies, setTechnologies] = useState("");
+export const CreateProject: FC<IProps> = () => {
+	const [title, setTitle] = useState('');
+	const [description, setDescription] = useState('');
+	const [imageUrl, setImageUrl] = useState('');
+	const [technologies, setTechnologies] = useState('');
 
-	function handleFormSubmit(e: any): any {
+	function handleFormSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		// CreateProject();
 	}

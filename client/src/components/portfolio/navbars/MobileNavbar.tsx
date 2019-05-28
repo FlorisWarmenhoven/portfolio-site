@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import styled from "../../../../types/styled-components";
-import { FaBars } from "react-icons/fa";
+import React, { FC } from 'react';
+import styled from '../../../../types/styled-components';
+import { FaBars } from 'react-icons/fa';
 
 export const MobileNavbar: FC = () => {
 	function toggleLinks() {
-		const linksElement = document.getElementById("myLinks");
-		if (linksElement.style.display === "block") {
-			linksElement.style.display = "none";
+		const linksElement = document.getElementById('myLinks');
+		if (linksElement.style.display === 'block') {
+			linksElement.style.display = 'none';
 		} else {
-			linksElement.style.display = "block";
+			linksElement.style.display = 'block';
 		}
 	}
 
@@ -41,7 +41,7 @@ const StyledMobileNavbar = styled.div`
 		display: none;
 		width: 0%;
 	}
-	font-family: "PT Sans", sans-serif;
+	font-family: 'PT Sans', sans-serif;
 	background-color: #232a34;
 	padding: 20px 30px;
 

@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { Navbar } from "./Navbar";
-import { Landing } from "./Landing";
-import styled from "../../../types/styled-components";
-import { About } from "./About";
+import React, { FC } from 'react';
+import { Navbar } from './Navbar';
+import { Landing } from './Landing';
+import styled from '../../../types/styled-components';
+import { About } from './About';
 
 export const Portfolio: FC = () => {
 	return (

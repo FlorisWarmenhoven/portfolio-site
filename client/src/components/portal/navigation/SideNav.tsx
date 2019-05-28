@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import styled from "../../../../types/styled-components";
-import { Link } from "react-router-dom";
-import { RouteComponentProps } from "react-router";
+import React, { FC } from 'react';
+import styled from '../../../../types/styled-components';
+import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 
 export const SideNav: FC<RouteComponentProps> = props => {
 	function handleLogout() {
-		localStorage.removeItem("token");
-		props.history.push("/login");
+		localStorage.removeItem('token');
+		props.history.push('/login');
 	}
 
 	return (
@@ -40,7 +40,7 @@ export const SideNav: FC<RouteComponentProps> = props => {
 };
 
 const StyledNavBar = styled.div`
-	font-family: "PT Sans", sans-serif;
+	font-family: 'PT Sans', sans-serif;
 	background-color: #232a34;
 	min-width: 250px;
 	min-height: 100vh;

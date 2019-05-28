@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import styled from "../../../../types/styled-components";
-import { FaSignOutAlt } from "react-icons/fa";
+import React, { FC } from 'react';
+import styled from '../../../../types/styled-components';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 export const TopNav: FC = () => {
 	return (

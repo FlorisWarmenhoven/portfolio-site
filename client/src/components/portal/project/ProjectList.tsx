@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { ProjectItem } from "./ProjectItem";
+import React, { FC } from 'react';
+import { ProjectItem } from './ProjectItem';
 
 interface IProps {
 	projects: IProject[];

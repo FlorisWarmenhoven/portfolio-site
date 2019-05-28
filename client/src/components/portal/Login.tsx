@@ -1,13 +1,13 @@
-import React, { useState, FC } from "react";
-import { Redirect, RouteComponentProps } from "react-router";
-import { useMutation } from "react-apollo-hooks";
-import { LOGIN_USER, ILoginUserResponse } from "../../graphql/mutations";
-import styled from "../../../types/styled-components";
+import React, { useState, FC } from 'react';
+import { Redirect, RouteComponentProps } from 'react-router';
+import { useMutation } from 'react-apollo-hooks';
+import { LOGIN_USER, ILoginUserResponse } from '../../graphql/mutations';
+import styled from '../../../types/styled-components';
 
 export const Login: FC<RouteComponentProps> = props => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [errorMessage, setErrorMessage] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [errorMessage, setErrorMessage] = useState('');
 
 	const loginMutation = useMutation<ILoginUserResponse>(LOGIN_USER, {
 		variables: {
@@ -21,14 +21,14 @@ export const Login: FC<RouteComponentProps> = props => {
 			e.preventDefault();
 			const response = await loginMutation();
 
-			await localStorage.setItem("token", response.data.login.token);
-			props.history.push("/portal/dashboard");
+			await localStorage.setItem('token', response.data.login.token);
+			props.history.push('/portal/dashboard');
 		} catch (e) {
 			setErrorMessage(e.message);
 		}
 	}
 
-	if (localStorage.getItem("token")) {
+	if (localStorage.getItem('token')) {
 		return <Redirect to="/portal/dashboard" />;
 	}
 

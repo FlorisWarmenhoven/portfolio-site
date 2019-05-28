@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import { TechnologyList } from "./TechnologyList";
-import { CreateTechnology } from "./CreateTechnology";
-import { GET_TECHNOLOGIES } from "../../../graphql/queries";
+import React, { FC } from 'react';
+import { TechnologyList } from './TechnologyList';
+import { CreateTechnology } from './CreateTechnology';
+import { GET_TECHNOLOGIES } from '../../../graphql/queries';
 import {
 	DELETE_TECHNOLOGY,
 	CREATE_TECHNOLOGY,
 	ICreateTechnologyResponse,
 	IDeleteTechnologyResponse
-} from "../../../graphql/mutations";
-import { DataProxy } from "apollo-cache";
-import { useMutation, useQuery } from "react-apollo-hooks";
+} from '../../../graphql/mutations';
+import { DataProxy } from 'apollo-cache';
+import { useMutation, useQuery } from 'react-apollo-hooks';
 
 export const TechnologyPage: FC = () => {
 	function updateCacheOnDelete(

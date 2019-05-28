@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 interface IProps {
 	technology: ITechnology;
@@ -10,7 +10,7 @@ export const TechnologyItem: FC<IProps> = props => {
 
 	return (
 		<div>
-			{name} - <img src={iconUrl} style={{ height: 20, width: "auto" }} />
+			{name} - <img src={iconUrl} style={{ height: 20, width: 'auto' }} />
 			<button onClick={() => props.handleDelete({ variables: { id } })}>
 				Delete
 			</button>

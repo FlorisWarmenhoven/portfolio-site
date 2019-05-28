@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import styled from "../../../../types/styled-components";
+import React, { FC } from 'react';
+import styled from '../../../../types/styled-components';
 import {
 	FaHome,
 	FaUser,
@@ -8,7 +8,7 @@ import {
 	FaChartBar,
 	FaPhone,
 	FaFileAlt
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export const DefaultNavbar: FC = () => {
 	return (
@@ -74,7 +74,7 @@ const StyledNavBar = styled.div`
 		width: 0%;
 	}
 
-	font-family: "PT Sans", sans-serif;
+	font-family: 'PT Sans', sans-serif;
 	background-color: #232a34;
 	min-width: 215px;
 	min-height: 100vh;

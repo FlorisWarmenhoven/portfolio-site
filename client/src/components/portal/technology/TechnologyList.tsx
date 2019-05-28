@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { TechnologyItem } from "./TechnologyItem";
+import React, { FC } from 'react';
+import { TechnologyItem } from './TechnologyItem';
 
 interface IProps {
 	technologies: ITechnology[];

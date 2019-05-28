@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import styled from "../../../types/styled-components";
+import React, { FC } from 'react';
+import styled from '../../../types/styled-components';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const aboutImage = require("../../assets/temporary-image.jpg");
+const aboutImage = require('../../assets/temporary-image.jpg');
 
 export const About: FC = () => {
 	return (
@@ -67,7 +67,7 @@ const StyledAboutPicture = styled.div`
 
 const StyledSectionText = styled.div`
 	font-size: 5rem;
-	font-family: "Montserrat";
+	font-family: 'Montserrat';
 	font-weight: 700;
 	letter-spacing: 0;
 	color: #f2f2f2;
@@ -77,7 +77,7 @@ const StyledSectionText = styled.div`
 const StyledSloganText = styled.div`
 	font-size: 2rem;
 	color: #333c4e;
-	font-family: "Montserrat";
+	font-family: 'Montserrat';
 	font-weight: 700;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -88,14 +88,14 @@ const StyledSloganText = styled.div`
 const StyledIntroductionText = styled.div`
 	color: #7e8890;
 	font-size: 19px;
-	font-family: "Georgia";
+	font-family: 'Georgia';
 	line-height: 36px;
 	font-style: italic;
 	margin-bottom: 1.25rem;
 `;
 
 const StyledContentText = styled.div`
-	font-family: "Lato";
+	font-family: 'Lato';
 	color: #747474;
 	font-size: 15px;
 	line-height: 36px;

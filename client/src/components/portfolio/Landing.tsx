@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { FC } from "react";
-import styled from "../../../types/styled-components";
-const landingImage = require("../../assets/landing-image.jpg");
-const profilePicture = require("../../assets/profile-picture.jpg");
+import React, { FC } from 'react';
+import styled from '../../../types/styled-components';
+const landingImage = require('../../assets/landing-image.jpg');
+const profilePicture = require('../../assets/profile-picture.jpg');
 
 export const Landing: FC = () => {
 	return (
@@ -25,7 +25,7 @@ export const Landing: FC = () => {
 };
 
 const StyledLanding = styled.div`
-	font-family: "Montserrat";
+	font-family: 'Montserrat';
 
 	background-position: 50% 50%;
 	height: 80vh;
@@ -85,6 +85,6 @@ const Introduction = styled.div`
 	p {
 		padding: 0;
 		margin: 0;
-		font-family: "Lato";
+		font-family: 'Lato';
 	}
 `;
