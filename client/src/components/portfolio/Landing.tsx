@@ -1,13 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from '../../../types/styled-components';
-const landingImage = require('../../assets/landing-image.jpg');
 const profilePicture = require('../../assets/profile-picture.jpg');
 
 export const Landing: FC = () => {
+	useEffect(() => {
+		// @ts-ignore
+		window.VANTA.WAVES({
+			el: '#canvas',
+			color: 0xc1322,
+			waveSpeed: 0.75,
+			zoom: 0.74
+		});
+	});
+
 	return (
-		<StyledLanding>
+		<StyledLanding id="canvas">
 			<Introduction>
 				<h3>Floris Warmenhoven</h3>
 				<hr />
@@ -33,7 +42,6 @@ const StyledLanding = styled.div`
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
-	background-image: url(${landingImage});
 
 	display: flex;
 	flex-direction: row;
@@ -57,6 +65,8 @@ const Picture = styled.div`
 
 	@media (max-width: 960px) {
 		margin-bottom: 50px;
+		width: 200px;
+		height: 200px;
 	}
 `;
 
