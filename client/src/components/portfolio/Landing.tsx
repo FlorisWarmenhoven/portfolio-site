@@ -7,11 +7,12 @@ const profilePicture = require('../../assets/profile-picture.jpg');
 export const Landing: FC = () => {
 	useEffect(() => {
 		// @ts-ignore
-		window.VANTA.WAVES({
+		window.VANTA.CLOUDS2({
 			el: '#canvas',
-			color: 0xc1322,
-			waveSpeed: 0.75,
-			zoom: 0.74
+			skyColor: 0x25a0dc,
+			cloudColor: 0x456093,
+			speed: 0.5,
+			texturePath: '../../assets/noise.png'
 		});
 	});
 
