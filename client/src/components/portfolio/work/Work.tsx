@@ -14,5 +14,4 @@ const StyledWork = styled.div`
 	font-family: 'Montserrat';
 	width: 100%;
 	height: 100vh;
-	background-color: gray;
 `;

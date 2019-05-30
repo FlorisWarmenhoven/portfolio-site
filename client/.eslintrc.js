@@ -9,6 +9,7 @@ module.exports = {
 		'react/prop-types': 0,
 		'@typescript-eslint/interface-name-prefix': [2, 'always'],
 		'@typescript-eslint/no-explicit-any': 2,
+		'@typescript-eslint/no-use-before-define': false,
 		indent: 'off',
 		'@typescript-eslint/indent': ['error', 'tab'],
 		'@typescript-eslint/explicit-function-return-type': 'off',
