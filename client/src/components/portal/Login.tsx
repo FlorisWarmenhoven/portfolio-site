@@ -16,7 +16,7 @@ export const Login: FC<RouteComponentProps> = props => {
 		}
 	});
 
-	async function handleLogin(e: React.FormEvent) {
+	const handleLogin = async (e: React.FormEvent) => {
 		try {
 			e.preventDefault();
 			const response = await loginMutation();
@@ -26,7 +26,7 @@ export const Login: FC<RouteComponentProps> = props => {
 		} catch (e) {
 			setErrorMessage(e.message);
 		}
-	}
+	};
 
 	if (localStorage.getItem('token')) {
 		return <Redirect to="/portal/dashboard" />;

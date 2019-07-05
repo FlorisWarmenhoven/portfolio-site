@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 
 export const SideNav: FC<RouteComponentProps> = props => {
-	function handleLogout() {
+	const handleLogout = () => {
 		localStorage.removeItem('token');
 		props.history.push('/login');
 	}

@@ -10,13 +10,13 @@ import { TopNav } from './navigation/TopNav';
 import { ProjectPage } from './project/ProjectPage';
 
 export const Portal: FC<RouteComponentProps> = props => {
-	async function isUserAuthenticated() {
+	const isUserAuthenticated = async () => {
 		const isAuthenticated = await authenticateUser();
 		if (!isAuthenticated) {
 			localStorage.removeItem('token');
 			props.history.push('/login');
 		}
-	}
+	};
 
 	useEffect(() => {
 		isUserAuthenticated();

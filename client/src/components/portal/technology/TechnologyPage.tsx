@@ -12,10 +12,10 @@ import { DataProxy } from 'apollo-cache';
 import { useMutation, useQuery } from 'react-apollo-hooks';
 
 export const TechnologyPage: FC = () => {
-	function updateCacheOnDelete(
+	const updateCacheOnDelete = (
 		cache: DataProxy,
 		deletedTechnology: ITechnology
-	) {
+	) => {
 		// Retrieve current technologies stored in cache
 		const { technologies } = cache.readQuery({
 			query: GET_TECHNOLOGIES
@@ -31,19 +31,19 @@ export const TechnologyPage: FC = () => {
 			query: GET_TECHNOLOGIES,
 			data: { technologies: filteredTechnologies }
 		});
-	}
+	};
 
-	function updateCacheOnCreate(
+	const updateCacheOnCreate = (
 		cache: DataProxy,
 		createdTechnology: ITechnology
-	) {
+	) => {
 		const { technologies } = cache.readQuery({ query: GET_TECHNOLOGIES });
 
 		cache.writeQuery({
 			query: GET_TECHNOLOGIES,
 			data: { technologies: technologies.concat([createdTechnology]) }
 		});
-	}
+	};
 
 	const createTechnologyMutation = useMutation<ICreateTechnologyResponse>(
 		CREATE_TECHNOLOGY,

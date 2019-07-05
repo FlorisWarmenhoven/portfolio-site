@@ -8,12 +8,12 @@ export const CreateTechnology: FC<IProps> = props => {
 	const [name, setName] = useState('');
 	const [iconUrl, setIconUrl] = useState('');
 
-	function handleFormSubmit(e: React.FormEvent) {
+	const handleFormSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		props.handleCreate({ variables: { name, iconUrl } });
 		setName('');
 		setIconUrl('');
-	}
+	};
 
 	return (
 		<form onSubmit={e => handleFormSubmit(e)}>

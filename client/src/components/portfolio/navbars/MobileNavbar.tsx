@@ -3,14 +3,14 @@ import styled from '../../../../types/styled-components';
 import { FaBars } from 'react-icons/fa';
 
 export const MobileNavbar: FC = () => {
-	function toggleLinks() {
+	const toggleLinks = () => {
 		const linksElement = document.getElementById('myLinks');
 		if (linksElement.style.display === 'block') {
 			linksElement.style.display = 'none';
 		} else {
 			linksElement.style.display = 'block';
 		}
-	}
+	};
 
 	return (
 		<div>

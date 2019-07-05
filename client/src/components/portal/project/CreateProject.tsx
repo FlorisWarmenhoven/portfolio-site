@@ -10,10 +10,10 @@ export const CreateProject: FC<IProps> = () => {
 	const [imageUrl, setImageUrl] = useState('');
 	const [technologies, setTechnologies] = useState('');
 
-	function handleFormSubmit(e: React.FormEvent) {
+	const handleFormSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		// CreateProject();
-	}
+	};
 
 	return (
 		<form onSubmit={e => handleFormSubmit(e)}>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function authenticateUser() {
+export const authenticateUser = async () => {
 	const token = await localStorage.getItem('token');
 	try {
 		await axios.get(`${process.env.BACKEND_API_ENDPOINT}/authenticate`, {
@@ -11,4 +11,4 @@ export async function authenticateUser() {
 	} catch (error) {
 		return false;
 	}
-}
+};
