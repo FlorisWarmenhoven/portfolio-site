@@ -4,7 +4,7 @@
 	"description": "[![CircleCI](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master.svg?style=shield)](https://circleci.com/gh/FlorisWarmenhoven/portfolio-site/tree/master)",
 	"main": "index.js",
 	"engines": {
-		"node": "11.x"
+		"node": "12.x"
 	},
 	"scripts": {
 		"start": "env-cmd server/config/prod.env babel-node server/src/index.js --presets @babel/preset-env",
