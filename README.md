@@ -3,7 +3,7 @@
 # Floris' Portfolio Application
 
 See the latest successful build live here:
-https://floriswarmenhoven.nl
+https://floris.dev
 
 ## About this project
 
